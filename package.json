@@ -1,9 +1,12 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "private": true,
-  "description": "portfolio",
-  "author": "HugoRaak",
+  "description": "Portfolio website",
+  "author": "Hugo Rathle | HugoRaak",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HugoRaak/hugo-rathle.com"
+  },
   "keywords": [
     "gatsby"
   ],
