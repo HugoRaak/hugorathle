@@ -12,6 +12,7 @@ export const Content = () => {
             web and contributing to the dynamic realm of web development. I find pleasure in
             dedicating time to explore emerging technologies and mastering their applications.
         </p>
-        <StaticImage src="../../../images/about_img.png" alt="Image of code" placeholder="blurred"/>
+        <StaticImage src="../../../images/mask_about2.png" alt="Image of code" placeholder="blurred"
+                     className="mb-10"/>
     </div>;
 };

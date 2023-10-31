@@ -10,3 +10,5 @@ export { default as IconC } from './IconC';
 export { default as IconPython } from './IconPython';
 export { default as IconGit } from './IconGit';
 export { default as IconFigma } from './IconFigma';
+export { default as IconLogo } from './IconLogo';
+export { default as Icon } from './Icon';
