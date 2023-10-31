@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Logo} from "../../Logo";
+import {Logo} from "@components/Logo";
 import {NavLink} from "./NavLink";
 import {ThemeSwitcher} from "./ThemeSwitcher";
 

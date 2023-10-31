@@ -6,7 +6,7 @@ export const TypingAnimate = () => {
 
     React.useEffect(() => {
         const typed = new Typed(el.current, {
-            strings: ["passionate", "versatile", "serious", "creative", "curious"],
+            strings: ["passionate.", "versatile.", "serious.", "creative.", "curious."],
             typeSpeed: 100,
             backSpeed: 50,
             loop: true

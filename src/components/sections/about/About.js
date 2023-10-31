@@ -1,5 +1,5 @@
 import React from "react";
-import {Separator} from "../Separator";
+import {Separator} from "@components/Separator";
 import {Skills} from "./Skills";
 import {Content} from "./Content";
 import {Resume} from "./Resume";

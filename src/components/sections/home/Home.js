@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Navbar} from "./navbar/Navbar";
-import {Separator} from "../Separator";
+import {Separator} from "@components/Separator";
 import {Title} from "./Title";
 
 export const Home = () => {
