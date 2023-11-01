@@ -3,7 +3,7 @@ import React from "react";
 
 export const Resume = () => {
     return <div className="text-center mt-[10%]">
-        <LinkButton location="/resume.pdf">
+        <LinkButton location="/resume.pdf" target="_blank" rel="noreferrer">
             <div className="flex gap-2">
                 Resume
                 <svg width="25" height="30" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg"

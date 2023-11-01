@@ -1,0 +1,65 @@
+[
+  {
+    "title": "HugoRaak",
+    "image": "../../images/projects/HugoRaak.png",
+    "description": "HugoRaak is a blog focused on back-end implementation, featuring authentication, a comments system, an admin panel, and more...",
+    "tech": [
+      "laravel",
+      "livewire",
+      "alpine",
+      "bootstrap"
+    ],
+    "viewOn": {
+      "url": null,
+      "github": "https://github.com/HugoRaak/blog"
+    },
+    "add": 1
+  },
+  {
+    "title": "teT2",
+    "image": "../../images/projects/HugoRaak.png",
+    "description": "HugoRaak is a blog focused on back-end implementation, featuring authentication, a comments system, an admin panel, and more.",
+    "tech": [
+      "qsd",
+      "qsd",
+      "alpqsdqsine",
+      "sdsq"
+    ],
+    "viewOn": {
+      "url": "https://youtube.com",
+      "github": null
+    },
+    "add": 2
+  },
+  {
+    "title": "tesst1",
+    "image": "../../images/projects/HugoRaak.png",
+    "description": "HugoRaak is a blog focused on back-end implementation, featuring authentication, a comments system, an admin panel, and more.",
+    "tech": [
+      "test1"
+    ],
+    "viewOn": {
+      "url": null,
+      "github": null
+    },
+    "add": 3
+  },
+  {
+    "title": "tesst1qsdqs",
+    "image": "../../images/projects/HugoRaak.png",
+    "description": "HugoRaak is a blog focused on back-end implementation, featuring authentication, a comments system, an admin panel, and more.",
+    "tech": [
+      "test1",
+      "test1",
+      "test1",
+      "test1",
+      "test1",
+      "test1"
+    ],
+    "viewOn": {
+      "url": "qsdqsd",
+      "github": "qdsqdqs"
+    },
+    "add": 4
+  }
+]

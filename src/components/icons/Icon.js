@@ -12,7 +12,9 @@ import {
     IconPython,
     IconGit,
     IconFigma,
-    IconLogo,
+    IconAlpine,
+    IconDefault,
+    IconLivewire,
 } from '@components/icons';
 
 /**
@@ -45,10 +47,12 @@ const Icon = ({ name, ...props }) => {
             return <IconGit {...props}/>;
         case 'figma':
             return <IconFigma {...props}/>;
-        case 'logo':
-            return <IconLogo {...props}/>;
+        case 'alpine':
+            return <IconAlpine {...props}/>;
+        case 'livewire':
+            return <IconLivewire {...props}/>;
         default:
-            return <></>;
+            return <IconDefault title={name} {...props}/>;
     }
 };
 

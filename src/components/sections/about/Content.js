@@ -13,6 +13,6 @@ export const Content = () => {
             dedicating time to explore emerging technologies and mastering their applications.
         </p>
         <StaticImage src="../../../images/about_coding.jpg" alt="Image of code" placeholder="blurred"
-                     className="rounded-lg" height={450} layout="constrained"/>
+                     className="rounded-lg" height={450}/>
     </div>;
 };
