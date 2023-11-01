@@ -1,5 +1,5 @@
 import React from 'react';
-import {IconExternal, IconGithub} from "@components/icons";
+import {LinkIcon} from "@components";
 
 /**
  * @param {String|null} githubLink
@@ -9,18 +9,8 @@ export const ViewOn = ({githubLink, urlLink}) => {
     return <div className="info__view-on">
         <h5 className="text-xl font-bold opacity-30 dark:opacity-60">View on:</h5>
         <div className="flex justify-center gap-5 mt-2">
-            {githubLink && <Link href={githubLink}>
-                <IconGithub height={40}/>
-            </Link>}
-            {urlLink && <Link href={urlLink}>
-                <IconExternal height={40}/>
-            </Link>}
+            {githubLink && <LinkIcon href={githubLink} name="github" height={40}/>}
+            {urlLink && <LinkIcon href={urlLink} name="external" height={40}/>}
         </div>
     </div>;
 };
-
-const Link = ({href, children}) => {
-    return <a href={href} target="_blank" rel="noreferrer" className="hover:scale-125">
-        {children}
-    </a>;
-}

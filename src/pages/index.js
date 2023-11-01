@@ -1,5 +1,5 @@
 import React from "react";
-import {Home, About, Work} from "@components";
+import {Home, About, Work, Contact, Footer} from "@components";
 
 const IndexPage = () => {
     return <div className="text-dark dark:bg-darkTheme dark:text-white
@@ -7,6 +7,8 @@ const IndexPage = () => {
         <Home/>
         <About/>
         <Work/>
+        <Contact/>
+        <Footer/>
     </div>;
 }
 

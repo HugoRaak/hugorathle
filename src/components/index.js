@@ -1,7 +1,10 @@
 export { default as LinkButton } from './LinkButton';
+export { default as LinkIcon } from './LinkIcon';
 export { default as Logo } from './Logo';
 export { default as SectionTitle } from './SectionTitle';
 export { default as Separator } from './Separator';
 export { default as Home } from './sections/home/Home';
 export { default as About } from './sections/about/About';
 export { default as Work } from './sections/work/Work';
+export { default as Contact } from './sections/Contact';
+export { default as Footer } from './sections/Footer';

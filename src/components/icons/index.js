@@ -15,5 +15,7 @@ export { default as IconLivewire } from './IconLivewire';
 export { default as IconLogo } from './IconLogo';
 export { default as IconGithub } from './IconGithub';
 export { default as IconExternal } from './IconExternal';
+export { default as IconLinkedin } from './IconLinkedin';
+export { default as IconDiscord } from './IconDiscord';
 export { default as IconDefault } from './IconDefault';
 export { default as Icon } from './Icon';

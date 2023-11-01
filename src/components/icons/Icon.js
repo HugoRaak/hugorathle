@@ -13,8 +13,12 @@ import {
     IconGit,
     IconFigma,
     IconAlpine,
-    IconDefault,
     IconLivewire,
+    IconGithub,
+    IconExternal,
+    IconLinkedin,
+    IconDiscord,
+    IconDefault,
 } from '@components/icons';
 
 /**
@@ -51,6 +55,14 @@ const Icon = ({ name, ...props }) => {
             return <IconAlpine {...props}/>;
         case 'livewire':
             return <IconLivewire {...props}/>;
+        case 'github':
+            return <IconGithub {...props}/>;
+        case 'external':
+            return <IconExternal {...props}/>;
+        case 'linkedin':
+            return <IconLinkedin {...props}/>;
+        case 'discord':
+            return <IconDiscord {...props}/>;
         default:
             return <IconDefault title={name} {...props}/>;
     }
