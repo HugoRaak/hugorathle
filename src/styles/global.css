@@ -45,16 +45,6 @@ html {
 /* end link hover */
 
 /* theme switcher */
-#theme-switcher + label .sun,
-#theme-switcher + label .moon{
-    transition: all .3s ease-out;
-}
-#theme-switcher + label .sun {
-    transform: translateX(0) rotate(0deg);
-}
-#theme-switcher + label .moon {
-    transform: translateX(-30px) rotate(0deg);
-}
 #theme-switcher:checked + label .sun {
     opacity: 0;
     transform: translateX(30px) rotate(360deg);
