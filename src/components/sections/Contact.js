@@ -2,7 +2,7 @@ import React from "react";
 import {SectionTitle, LinkButton} from "@components";
 
 const Contact = () => {
-    return <div id="contact">
+    return <section id="contact">
         <div className="pt-5">
             <SectionTitle>Get in touch</SectionTitle>
         </div>
@@ -18,7 +18,7 @@ const Contact = () => {
                 </div>
             </LinkButton>
         </div>
-    </div>;
+    </section>;
 };
 
 export default Contact;

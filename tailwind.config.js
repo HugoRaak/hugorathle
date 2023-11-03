@@ -15,6 +15,10 @@ module.exports = {
         sans: ['Josefin Sans', 'sans-serif'],
         audiowide: ['Audiowide', 'sans-serif'],
       },
+      screens: {
+        'xsm': '300px',
+        '2xsm': '200px',
+      },
     },
   },
   plugins: [],

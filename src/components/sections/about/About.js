@@ -5,7 +5,7 @@ import {Content} from "./Content";
 import {Resume} from "./Resume";
 
 const About = () => {
-    return <div id="about">
+    return <section id="about">
         <div className="pt-5">
             <SectionTitle>About me</SectionTitle>
         </div>
@@ -13,7 +13,7 @@ const About = () => {
         <h2 className="text-center text-4xl pt-[1%]">My skills</h2>
         <Skills/>
         <Resume/>
-    </div>
+    </section>
 }
 
 export default About;

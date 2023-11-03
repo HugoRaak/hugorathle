@@ -63,3 +63,38 @@ html {
     );
     transition: background-image 3s ease-out;
 }
+
+/* hamburger menu */
+.menu__ham path {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    --length: 24;
+    --offset: -38;
+    stroke-dasharray: var(--length) var(--total-length);
+    stroke-dashoffset: var(--offset);
+    transition: all .4s cubic-bezier(.645, .045, .355, 1);
+}
+.menu__ham.open .ham__l1,
+.menu__ham.open .ham__l3 {
+    --length: 22.627416998;
+}
+.menu__ham.open .ham__l2 {
+    --length: 0;
+}
+.menu__ham .ham__l1,
+.menu__ham .ham__l3 {
+    --total-length: 126.64183044433594;
+}
+.menu__ham .ham__l2 {
+    --total-length: 70;
+}
+.menu__ham.open .ham__l1,
+.menu__ham.open .ham__l3 {
+    --offset: -94.1149185097;
+}
+.menu__ham.open .ham__l2 {
+    --offset: -50;
+}
+/* end hamburger menu */
