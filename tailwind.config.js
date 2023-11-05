@@ -16,6 +16,9 @@ module.exports = {
         audiowide: ['Audiowide', 'sans-serif'],
       },
       screens: {
+        'tablet-lg': '590px',
+        'tablet': '500px',
+        'tablet-xs': '430px',
         'xsm': '300px',
         '2xsm': '200px',
       },

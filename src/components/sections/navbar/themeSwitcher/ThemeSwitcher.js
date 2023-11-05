@@ -12,7 +12,7 @@ export const ThemeSwitcher = () => {
 
     useEffect(() => {
         if(isDark) {
-            document.documentElement.setAttribute('data-theme','dark');
+            document.documentElement.dataset.theme = 'dark';
         } else if(isDark === false) {
             document.documentElement.removeAttribute('data-theme');
         }
