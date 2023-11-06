@@ -127,9 +127,3 @@ html::-webkit-scrollbar-thumb {
     --offset: -50;
 }
 /* end hamburger menu */
-
-/* text responsive */
-.text__paragraph {
-    @apply text-xs 2xsm:text-lg md:text-xl lg:text-2xl 2xl:text-3xl;
-}
-/* end text responsive */

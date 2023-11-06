@@ -6,13 +6,13 @@ export const ButtonToggleMenu = () => {
     const {isOpenMenu, toggleIsOpenMenu} = useSidebarMenu();
     useEffect(() => {
         if(isOpenMenu) {
-            document.body.classList.add('overflow-hidden');
+            document.documentElement.classList.add('overflow-hidden');
             document.querySelector('.overlay')?.addEventListener('click', toggleIsOpenMenu);
             document.querySelectorAll('.link').forEach((link) => {
                 link.addEventListener('click', toggleIsOpenMenu)
             });
         } else {
-            document.body.classList.remove('overflow-hidden');
+            document.documentElement.classList.remove('overflow-hidden');
             document.querySelector('.overlay')?.removeEventListener('click', toggleIsOpenMenu);
             document.querySelectorAll('.link').forEach((link) => {
                 link.removeEventListener('click', toggleIsOpenMenu)

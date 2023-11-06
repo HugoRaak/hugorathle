@@ -4,9 +4,9 @@ import {Separator} from "@components";
 const SectionTitle = ({children}) => {
     return <div className="flex flex-col items-center justify-center pt-5">
         <Separator/>
-        <h2 className="z-10 text-4xl bg-white dark:bg-darkTheme -mt-[1.40rem] px-0.5">
+        <h5 className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl z-10 bg-white dark:bg-darkTheme -mt-[1.05rem] 2xs:-mt-[1.40rem] lg:-mt-[1.80rem] px-0.5">
             {children}
-        </h2>
+        </h5>
     </div>;
 };
 

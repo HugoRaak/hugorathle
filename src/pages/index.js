@@ -19,7 +19,7 @@ const IndexPage = () => {
                     <Navbar/>
                     <SidebarMenu/>
             </ThemeSwitcherContextProvider>
-                <div className="pl-[9vw] xsm:px-[10vw] transition-filter duration-300 ease-out">
+                <div className="pl-[9vw] xs:px-[10vw] transition-filter duration-300 ease-out">
                     <Home/>
                     <About/>
                     <Work/>

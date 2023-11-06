@@ -21,12 +21,12 @@ export const Skills = () => {
     const skillRow1 = skills.slice(0, halfLength);
     const skillRow2 = skills.slice(halfLength, skills.length);
 
-    return <div className="flex flex-col justify-center items-center px-5 pt-10">
-        <div className="flex gap-4 py-5">
-            {skillRow1.map((skill, i) => <Icon key={i} name={skill} />)}
+    return <div className="flex flex-col justify-center items-center pt-1 xs:pt-5 tablet:pt-10">
+        <div className="flex py-[2vw] lg:py-5">
+            {skillRow1.map((skill, i) => <Icon key={i} name={skill} className="h-[10vw] lg:h-auto w-auto px-[1vw]"/>)}
         </div>
-        <div className="flex gap-4 py-5">
-            {skillRow2.map((skill, i) => <Icon key={i} name={skill} />)}
+        <div className="flex py-[2vw] lg:py-5">
+            {skillRow2.map((skill, i) => <Icon key={i} name={skill} className="h-[10vw] lg:h-auto w-auto px-[1vw]"/>)}
         </div>
     </div>;
 }

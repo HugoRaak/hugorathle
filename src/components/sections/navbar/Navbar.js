@@ -8,7 +8,7 @@ const Navbar = () => {
     const {themeSwitcherRef} = useThemeSwitcher();
 
     return <>
-        <header className="flex justify-between items-center w-full xsm:px-5">
+        <header className="flex justify-between items-center w-full xs:px-5">
             <a href="/" className={'transition-filter duration-300 ease-out' + (isOpenMenu ? ' blur' : '')}>
                 <Logo/>
             </a>
