@@ -2,7 +2,7 @@
   {
     "title": "HugoRaak",
     "image": "../../images/projects/HugoRaak.png",
-    "description": "HugoRaak is a blog focused on back-end implementation, featuring authentication, a comments system, an admin panel, and more...",
+    "description": "HugoRaak is a blog focused on back-end implementation, featuring authentication, a comments system, an admin panel, and more.",
     "tech": [
       "laravel",
       "livewire",

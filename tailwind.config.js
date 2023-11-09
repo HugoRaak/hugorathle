@@ -19,6 +19,7 @@ module.exports = {
         'tablet-lg': '590px',
         'tablet': '500px',
         'tablet-xs': '430px',
+        'mobile': '350px',
         'xs': '300px',
         '2xs': '200px',
       },

@@ -29,7 +29,7 @@ export const Projects = () => {
       }
     }
     `);
-    return <div className="px-[10%] pb-10">
+    return <ul className="pb-10">
         {data.allProjectsJson.edges.map(({node}, i) => <Project key={node.title} project={node} isEven={i % 2 === 0}/>)}
-    </div>;
+    </ul>;
 };

@@ -15,12 +15,12 @@ import {Image} from "./infos/Image";
 export const Project = ({project, isEven}) => {
     const imageHref = project.viewOn.url ?? project.viewOn.github ?? '#';
 
-    return <div className="flex gap-16 my-32">
-        {isEven && <Image image={project.image} name={project.title} href={imageHref} isEven={isEven}/>}
-        <div className="w-2/5 flex flex-col justify-between">
-            <Infos title={project.title} description={project.description}
-                   techs={project.tech} viewOn={project.viewOn}/>
-        </div>
-        {!isEven && <Image image={project.image} name={project.title} href={imageHref} isEven={isEven}/>}
-    </div>;
+    return <li className="relative md:flex md:items-center md:space-x-[3vw] xl:space-x-16 my-32">
+        {isEven && <Image image={project.image} name={project.title}
+                          href={imageHref} isEven={isEven}/>}
+        <Infos title={project.title} description={project.description}
+               techs={project.tech} viewOn={project.viewOn}/>
+        {!isEven && <Image image={project.image} name={project.title}
+                           href={imageHref} isEven={isEven}/>}
+    </li>;
 };
