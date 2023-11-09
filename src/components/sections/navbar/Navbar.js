@@ -1,15 +1,38 @@
-import * as React from "react";
+import React, {useEffect, useState} from "react";
 import {Separator, Logo, NavLink} from "@components";
-import {useSidebarMenu, useThemeSwitcher} from "@hooks";
-import {ButtonToggleMenu} from "./ButtonToggleMenu";
+import {useThemeSwitcher} from "@hooks";
+import {ButtonToggleMenu} from "./sideBarMenu/ButtonToggleMenu";
+import {SidebarMenu} from "./sideBarMenu/SidebarMenu";
 
 const Navbar = () => {
-    const {isOpenMenu} = useSidebarMenu();
     const {themeSwitcherRef} = useThemeSwitcher();
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
+    const [isShow, setIsShow] = useState(true);
+    const [isInitialPos, setIsInitialPos] = useState(true);
 
-    return <>
-        <header className="flex justify-between items-center w-full xs:px-5">
-            <a href="/" className={'transition-filter duration-300 ease-out' + (isOpenMenu ? ' blur' : '')}>
+    const toggleIsOpenMenu = () => {
+        setIsOpenMenu(!isOpenMenu);
+    };
+
+    useEffect(() => {
+        let prevScrollY = window.scrollY;
+
+        const onScroll = () => {
+            const currentScrollY = window.scrollY;
+            (currentScrollY < prevScrollY || currentScrollY < 50) ? setIsShow(true) : setIsShow(false);
+            currentScrollY < 100 ? setIsInitialPos(true) : setIsInitialPos(false);
+            prevScrollY = currentScrollY > 0 ? currentScrollY : 0;
+        };
+
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    return <header className={"fixed top-0 z-40 bg-white dark:bg-darkTheme transition-all duration-300 ease-out shadow- shadow-black"
+                   + (!isInitialPos && isShow ? ' shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] ' : '')
+                   + (isShow || isOpenMenu ? ' translate-y-0' : ' translate-y-[-105%]')}>
+        <div className="flex justify-between items-center w-full xs:px-5">
+            <a href="/" className={'transition-filter duration-300 ease-out' + (isOpenMenu ? ' blur-[5px]' : '')}>
                 <Logo/>
             </a>
             <div className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20">
@@ -20,10 +43,11 @@ const Navbar = () => {
             {!isOpenMenu && <div className="hidden sm:block pr-5 right-0">
                 {themeSwitcherRef.current}
             </div>}
-            <ButtonToggleMenu/>
-        </header>
-        <Separator className={'transition-filter duration-300 ease-out' + (isOpenMenu ? ' blur' : '')}/>
-    </>;
+            <ButtonToggleMenu isOpenMenu={isOpenMenu} toggleIsOpenMenu={toggleIsOpenMenu}/>
+            <SidebarMenu isOpenMenu={isOpenMenu}/>
+        </div>
+        <Separator className={'transition-filter duration-300 ease-out' + (isOpenMenu ? ' blur-[5px]' : '')}/>
+    </header>;
 };
 
 export default Navbar;

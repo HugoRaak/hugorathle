@@ -1,9 +1,10 @@
-import * as React from "react";
-import {useSidebarMenu} from "@hooks";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 
-export const ButtonToggleMenu = () => {
-    const {isOpenMenu, toggleIsOpenMenu} = useSidebarMenu();
+/**
+ * @param {boolean} isOpenMenu
+ * @param {() => void} toggleIsOpenMenu
+ */
+export const ButtonToggleMenu = ({isOpenMenu, toggleIsOpenMenu}) => {
     useEffect(() => {
         if(isOpenMenu) {
             document.documentElement.classList.add('overflow-hidden');
@@ -20,9 +21,9 @@ export const ButtonToggleMenu = () => {
         }
     }, [isOpenMenu, toggleIsOpenMenu]);
 
-    return <div className={`menu__ham block relative -top-12 -right-9 sm:hidden ${isOpenMenu ? 'open' : ''}`}>
+    return <div className={`menu__ham relative -top-12 -right-7 2xs:-right-5 xs:-right-9 sm:hidden ${isOpenMenu ? 'open' : ''}`}>
         <svg viewBox="10 0 100 100" xmlns="http://www.w3.org/2000/svg"
-             className="block absolute z-30 w-24 h-24 top-0 right-0">
+             className="block absolute z-[70] w-24 h-24 top-0 right-0">
             <circle cx="50" cy="50" r="20" onClick={toggleIsOpenMenu}
                     className="fill-white opacity-0 cursor-pointer"/>
             <g onClick={toggleIsOpenMenu} className="cursor-pointer">
