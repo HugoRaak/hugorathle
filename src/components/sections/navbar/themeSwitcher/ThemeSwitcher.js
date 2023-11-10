@@ -2,7 +2,12 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 
 export const ThemeSwitcher = () => {
-    const [isDark, setIsDark] = useState(document.documentElement.hasAttribute('data-theme'));
+    const [isDark, setIsDark] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return document.documentElement.hasAttribute('data-theme');
+        }
+        return false;
+    });
 
     useEffect(() => {
         const preferenceTheme = localStorage.getItem('preference-theme');
