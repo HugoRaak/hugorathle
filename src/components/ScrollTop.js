@@ -20,7 +20,7 @@ const ScrollTop = () => {
         });
     }
 
-    return <div className={"scroll-top flex justify-center items-center " +
+    return <button className={"scroll-top flex justify-center items-center " +
                     "fixed bottom-2 right-0 2xs:bottom-3 2xs:right-1 mobile:bottom-5 mobile:right-3 " +
                     "w-6 h-6 2xs:w-8 2xs:h-8 mobile:w-12 mobile:h-12 z-[35] " +
                     "rounded-full bg-white dark:bg-darkTheme shadow-inner shadow-black/40 dark:shadow-black/70 " +
@@ -33,7 +33,7 @@ const ScrollTop = () => {
             <path d="M1.35135 9.45946C0.945946 9.45946 0.675676 9.32432 0.405405 9.05405C-0.135135 8.51351 -0.135135 7.7027 0.405405 7.16216L7.16216 0.405405C7.7027 -0.135135 8.51351 -0.135135 9.05405 0.405405C9.5946 0.945946 9.5946 1.75676 9.05405 2.2973L2.2973 9.05405C2.02703 9.32432 1.75676 9.45946 1.35135 9.45946Z" fill="#D67300"/>
             <path d="M8.10819 20C7.29738 20 6.75684 19.5556 6.75684 18.8889V1.11111C6.75684 0.444444 7.29738 0 8.10819 0C8.919 0 9.45954 0.444444 9.45954 1.11111V18.8889C9.45954 19.5556 8.919 20 8.10819 20Z" fill="#D67300"/>
         </svg>
-    </div>;
+    </button>;
 };
 
 export default ScrollTop;

@@ -7,13 +7,13 @@ import React, {useEffect} from "react";
 export const ButtonToggleMenu = ({isOpenMenu, toggleIsOpenMenu}) => {
     useEffect(() => {
         if(isOpenMenu) {
-            document.documentElement.classList.add('overflow-hidden');
+                document.documentElement.classList.add('overflow-hidden');
             document.querySelector('.overlay')?.addEventListener('click', toggleIsOpenMenu);
             document.querySelectorAll('.link').forEach((link) => {
                 link.addEventListener('click', toggleIsOpenMenu)
             });
         } else {
-            document.documentElement.classList.remove('overflow-hidden');
+            document.documentElement.removeAttribute('class');
             document.querySelector('.overlay')?.removeEventListener('click', toggleIsOpenMenu);
             document.querySelectorAll('.link').forEach((link) => {
                 link.removeEventListener('click', toggleIsOpenMenu)

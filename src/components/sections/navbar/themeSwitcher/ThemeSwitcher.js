@@ -2,19 +2,20 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 
 export const ThemeSwitcher = () => {
-    const [isDark, setIsDark] = useState(false);
+    const [isDark, setIsDark] = useState(document.documentElement.hasAttribute('data-theme'));
 
     useEffect(() => {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setIsDark(true);
-        }
-    }, []);
-
-    useEffect(() => {
+        const preferenceTheme = localStorage.getItem('preference-theme');
         if(isDark) {
             document.documentElement.dataset.theme = 'dark';
-        } else if(isDark === false) {
+            if(preferenceTheme === null || preferenceTheme === 'light') {
+                localStorage.setItem('preference-theme', 'dark');
+            }
+        } else {
             document.documentElement.removeAttribute('data-theme');
+            if(preferenceTheme === null || preferenceTheme === 'dark') {
+                localStorage.setItem('preference-theme', 'light');
+            }
         }
     }, [isDark]);
 
