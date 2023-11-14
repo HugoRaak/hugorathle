@@ -37,9 +37,7 @@ const Navbar = () => {
             setIsSm(true);
         }
 
-        const timeout = setTimeout(() => {
-            setIsMounted(true);
-        }, 100);
+        const timeout = setTimeout(() => setIsMounted(true), 100);
 
         window.addEventListener('scroll', onScroll);
         return () => {
@@ -82,7 +80,7 @@ const Navbar = () => {
             {isMounted && <SidebarMenu isOpenMenu={isOpenMenu}/>}
         </div>
         <TransitionGroup component={null}>
-            {isMounted && <CSSTransition classNames="faderight-full" timeout={2000}>
+            {isMounted && <CSSTransition classNames="slideright-full" timeout={2000}>
                 <Separator className="transition-filter duration-300 ease-out"
                            style={{transitionDelay: `${!isSm ? links.length * 100 + 100 : 100}ms`}}/>
             </CSSTransition>}

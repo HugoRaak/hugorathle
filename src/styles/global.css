@@ -55,15 +55,27 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 }
 /* end transition fade down */
 
-/* transition fade right */
-.faderight-full-enter {
+/* transition fade up */
+.fadeup-enter {
+    opacity: 0;
+    transform: translateY(30px);
+}
+.fadeup-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .3s, transform .3s;
+}
+/* end transition fade up */
+
+/* transition slide right */
+.slideright-full-enter {
     transform: translateX(-100%);
 }
-.faderight-full-enter-active {
+.slideright-full-enter-active {
     transform: translateX(0);
     transition: transform 1s;
 }
-/* end transition fade right */
+/* end transition slide right */
 
 /* link hover */
 @media (hover: hover) {
