@@ -7,9 +7,8 @@ import {
     ScrollTop
 } from "@components";
 
-const Layout = ({children, location}) => {
-    const isHome = location.pathname === '/';
-    const [isLoading, setIsLoading] = useState(isHome);
+const Layout = ({children}) => {
+    const [isLoading, setIsLoading] = useState(true);
     const finishLoading = () => {
         const preferenceTheme = localStorage.getItem("preference-theme");
         if (preferenceTheme === null || preferenceTheme === "dark") {
@@ -19,7 +18,7 @@ const Layout = ({children, location}) => {
     };
 
     return <>
-        {isLoading && isHome ? (
+        {isLoading ? (
             <Loader finishLoading={finishLoading}/>
         ) : (
             <div className="text-dark dark:bg-darkTheme dark:text-white min-h-screen overflow-x-hidden

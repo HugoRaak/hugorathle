@@ -2,17 +2,6 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 
 export const ThemeSwitcher = () => {
-    const [isDOMInit, setIsDOMInit] = useState(false);
-    useEffect(() => {
-        setIsDOMInit(true);
-    }, []);
-
-    return <>
-        {isDOMInit && <ThemeSwitcherButton/>}
-    </>;
-};
-
-const ThemeSwitcherButton = () => {
     const [isDark, setIsDark] = useState(document.documentElement.hasAttribute('data-theme'));
 
     useEffect(() => {

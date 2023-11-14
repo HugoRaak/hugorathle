@@ -24,9 +24,6 @@ const Loader = ({finishLoading}) => {
             easing: 'easeInOutQuart',
             delay: function (path, i) {
                 return i * 250;
-            },
-            endDelay: function (path, i) {
-                return is2Xs ? 0 : i * 250;
             }
         })
 
@@ -35,7 +32,7 @@ const Loader = ({finishLoading}) => {
                 strokeDashoffset: [anime.setDashoffset, 0],
                 duration: 1000,
                 easing: 'easeInOutSine',
-            }, '-=1000')
+            })
             .add({
                 targets: '#R',
                 duration: 1000,

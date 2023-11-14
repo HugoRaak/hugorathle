@@ -43,6 +43,28 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 }
 /* end scroll bar */
 
+/* transition fade down */
+.fadedown-enter {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+.fadedown-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .3s, transform .3s;
+}
+/* end transition fade down */
+
+/* transition fade right */
+.faderight-full-enter {
+    transform: translateX(-100%);
+}
+.faderight-full-enter-active {
+    transform: translateX(0);
+    transition: transform 1s;
+}
+/* end transition fade right */
+
 /* link hover */
 @media (hover: hover) {
     .link::before, .link::after {
@@ -97,10 +119,9 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
             var(--orange) 81.77%,
             rgba(0, 0, 0, 0) 100%
     );
-    transition: background-image 3s ease-out;
 }
 
-/* hamburger menu */
+/* hamburger button */
 .menu__ham path {
     fill: none;
     stroke-width: 3;
@@ -133,7 +154,7 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 .menu__ham.open .ham__l2 {
     --offset: -50;
 }
-/* end hamburger menu */
+/* end hamburger button */
 
 /* animation bounce scroll-top */
 @media (hover: hover) {
