@@ -2,12 +2,18 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 
 export const ThemeSwitcher = () => {
-    const [isDark, setIsDark] = useState(() => {
-        if (typeof window !== 'undefined') {
-            return document.documentElement.hasAttribute('data-theme');
-        }
-        return false;
-    });
+    const [isDOMInit, setIsDOMInit] = useState(false);
+    useEffect(() => {
+        setIsDOMInit(true);
+    }, []);
+
+    return <>
+        {isDOMInit && <ThemeSwitcherButton/>}
+    </>;
+};
+
+const ThemeSwitcherButton = () => {
+    const [isDark, setIsDark] = useState(document.documentElement.hasAttribute('data-theme'));
 
     useEffect(() => {
         const preferenceTheme = localStorage.getItem('preference-theme');
@@ -42,5 +48,5 @@ export const ThemeSwitcher = () => {
                 <path d="M8.74036 0C3.66324 1.70308 0 6.491 0 12.1465C0 19.2481 5.75193 25 12.8535 25C18.509 25 23.2969 21.3368 25 16.2596C23.7147 16.6774 22.3329 16.9666 20.8869 16.9666C13.7853 16.9666 8.03342 11.2147 8.03342 4.11311C8.03342 2.66709 8.29049 1.28535 8.74036 0Z" fill="white"/>
             </svg>
         </label>
-    </>
-}
+    </>;
+};

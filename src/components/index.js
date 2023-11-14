@@ -1,6 +1,7 @@
+export { default as Layout } from './Layout';
+export { default as Loader } from './Loader';
 export { default as LinkButton } from './LinkButton';
 export { default as LinkIcon } from './LinkIcon';
-export { default as Logo } from './Logo';
 export { default as SectionTitle } from './SectionTitle';
 export { default as Separator } from './Separator';
 export { default as ScrollTop } from './ScrollTop';

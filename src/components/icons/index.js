@@ -1,3 +1,5 @@
+export { default as IconLogo } from './IconLogo';
+export { default as IconRaak } from './IconRaak';
 export { default as IconBootstrap } from './IconBootstrap';
 export { default as IconTailwind } from './IconTailwind';
 export { default as IconJavascript } from './IconJavascript';
@@ -12,7 +14,6 @@ export { default as IconGit } from './IconGit';
 export { default as IconFigma } from './IconFigma';
 export { default as IconAlpine } from './IconAlpine';
 export { default as IconLivewire } from './IconLivewire';
-export { default as IconLogo } from './IconLogo';
 export { default as IconGithub } from './IconGithub';
 export { default as IconExternal } from './IconExternal';
 export { default as IconLinkedin } from './IconLinkedin';

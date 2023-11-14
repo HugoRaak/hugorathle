@@ -7,23 +7,22 @@
 
 :root {
     --orange: #D67300;
-    --dark-slate: #2B2B2B;
+    --dark-theme: #2B2B2B;
 }
 
-/* scroll bar */
+/* global */
 html {
     box-sizing: border-box;
     width: 100%;
-    overflow-y: scroll;
     scroll-behavior: smooth;
-    scrollbar-color: var(--orange);
+}
+/* end global */
+
+/* scroll bar */
+html {
     scrollbar-width: thin;
-}
-html[data-theme="dark"]::-webkit-scrollbar-track {
-    background: var(--dark-slate);
-}
-html[data-theme="dark"]::-webkit-scrollbar-thumb {
-    border: 3px solid var(--dark-slate);
+    overflow-y: auto;
+    scrollbar-color: var(--orange);
 }
 html::-webkit-scrollbar {
     width: 12px;
@@ -35,6 +34,12 @@ html::-webkit-scrollbar-thumb {
     background-color: var(--orange);
     border: 3px solid #FFF;
     border-radius: 10px;
+}
+html[data-theme="dark"]::-webkit-scrollbar-track {
+    background: var(--dark-theme);
+}
+html[data-theme="dark"]::-webkit-scrollbar-thumb {
+    border: 3px solid var(--dark-theme);
 }
 /* end scroll bar */
 
