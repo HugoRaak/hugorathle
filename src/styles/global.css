@@ -45,7 +45,7 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 
 /* transition fade down */
 .fadedown-enter {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(-30px);
 }
 .fadedown-enter-active {
@@ -57,7 +57,7 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 
 /* transition fade up */
 .fadeup-enter {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(30px);
 }
 .fadeup-enter-active {
@@ -190,3 +190,10 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
     }
 }
 /* end animation bounce scroll-top */
+
+.transition-fill {
+    transition: fill .3s ease-out;
+}
+.transition-stroke {
+    transition: stroke .3s ease-out;
+}

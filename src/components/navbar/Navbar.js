@@ -17,6 +17,7 @@ const Navbar = () => {
     const {themeSwitcherRef} = useThemeSwitcher();
     const [isMounted, setIsMounted] = useState(false);
     const [isSm, setIsSm] = useState(false);
+    const [isAppearing, setIsAppearing] = useState(true);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isShow, setIsShow] = useState(true);
     const [isInitialPos, setIsInitialPos] = useState(true);
@@ -38,11 +39,13 @@ const Navbar = () => {
             setIsSm(true);
         }
 
-        const timeout = setTimeout(() => setIsMounted(true), 100);
+        const timeoutMounted = setTimeout(() => setIsMounted(true), 100);
+        const timeoutAppearing = setTimeout(() => setIsAppearing(false), 1000);
 
         window.addEventListener('scroll', onScroll);
         return () => {
-            clearTimeout(timeout);
+            clearTimeout(timeoutMounted);
+            clearTimeout(timeoutAppearing);
             window.removeEventListener('scroll', onScroll)
         };
     }, []);
@@ -57,7 +60,7 @@ const Navbar = () => {
             <div className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20">
                 <TransitionGroup component={null}>
                     {isMounted && links.map((link, i) => <CSSTransition key={i} classNames="fadedown" timeout={2000}>
-                            <NavLink key={i} location={`#${link.location}`} style={{transitionDelay: `${i * 100}ms`}}>
+                            <NavLink key={i} location={`#${link.location}`} style={isAppearing ? {transitionDelay: `${i * 100}ms`} : {}}>
                                 {link.name}
                             </NavLink>
                     </CSSTransition>)}
@@ -67,7 +70,7 @@ const Navbar = () => {
                 {isMounted && <CSSTransition classNames="fadedown" timeout={2000} in={!isSm}>
                     <>
                         {!isOpenMenu && <div className="hidden sm:block pr-5 right-0"
-                                             style={{transitionDelay: `${links.length * 100}ms`}}>
+                                             style={isAppearing ? {transitionDelay: `${links.length * 100}ms`} : {}}>
                             {themeSwitcherRef.current}
                         </div>}
                     </>

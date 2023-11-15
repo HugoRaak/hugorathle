@@ -1,12 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {SectionTitle} from "@components";
 import {Skills} from "./Skills";
 import {Content} from "./Content";
 import {Resume} from "./Resume";
 
 const About = () => {
-    const idToReveal = ['#about-head', '#about-skills'];
-
     return <section id="about" className="sm:pt-5">
         <div data-oas-offset="5000px">
             <SectionTitle>About me</SectionTitle>
