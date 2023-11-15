@@ -1,35 +1,37 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
 
-export const ThemeSwitcher = () => {
-    const [isSSR, setIsSSR] = useState(typeof window === 'undefined');
-    const [isDark, setIsDark] = useState(!isSSR ? document.documentElement.hasAttribute('data-theme') : true);
+export const ThemeSwitcher = ({isIndexPage}) => {
+    const [isMounted, setIsMounted] = useState(isIndexPage);
+    const [isDark, setIsDark] = useState(isIndexPage ? document.documentElement.hasAttribute('data-theme') : true);
 
     useEffect(() => {
-        if(isSSR) {
-            setIsSSR(false);
-            setIsDark(document.documentElement.hasAttribute('data-theme'));
-        }
         const preferenceTheme = localStorage.getItem('preference-theme');
-        if(isDark) {
-            document.documentElement.dataset.theme = 'dark';
-            if(preferenceTheme === null || preferenceTheme === 'light') {
-                localStorage.setItem('preference-theme', 'dark');
-            }
+        if (!isMounted) {
+            setIsMounted(true);
+            (preferenceTheme === null || preferenceTheme === "dark") ?
+                document.documentElement.dataset.theme = 'dark' : setIsDark(false);
         } else {
-            document.documentElement.removeAttribute('data-theme');
-            if(preferenceTheme === null || preferenceTheme === 'dark') {
-                localStorage.setItem('preference-theme', 'light');
+            if(isDark) {
+                document.documentElement.dataset.theme = 'dark';
+                if(preferenceTheme === null || preferenceTheme === 'light') {
+                    localStorage.setItem('preference-theme', 'dark');
+                }
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                if(preferenceTheme === null || preferenceTheme === 'dark') {
+                    localStorage.setItem('preference-theme', 'light');
+                }
             }
         }
-    }, [isDark, isSSR]);
+    }, [isDark]);
 
     return <>
-        {!isSSR && <>
-                <input type="checkbox" id="theme-switcher" className="hidden" aria-label="Change theme"
-                              onChange={e => setIsDark(e.target.checked)} checked={isDark}/>
-                <label htmlFor="theme-switcher"
-                              className="relative block w-12 h-6 bg-white dark:bg-darkTheme rounded-full
+        {isMounted && <>
+            <input type="checkbox" id="theme-switcher" className="hidden" aria-label="Change theme"
+                   onChange={e => setIsDark(e.target.checked)} checked={isDark}/>
+            <label htmlFor="theme-switcher"
+                   className="relative block w-12 h-6 bg-white dark:bg-darkTheme rounded-full
            shadow-inner shadow-black/40 dark:shadow-black/70 border border-gray-200 dark:border-[#323232]
            cursor-pointer transition-all duration-300 ease-out">
                 <svg width="24" height="24" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg"

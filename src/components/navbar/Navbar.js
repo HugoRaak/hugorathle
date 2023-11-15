@@ -74,7 +74,7 @@ const Navbar = ({isIndexPage}) => {
                     <>
                         {!isOpenMenu && <div className="hidden sm:block pr-5 right-0"
                                              style={isAppearing ? {transitionDelay: `${links.length * 100}ms`} : {}}>
-                            <ThemeSwitcher/>
+                            <ThemeSwitcher isIndexPage={isIndexPage}/>
                         </div>}
                     </>
                 </CSSTransition>}

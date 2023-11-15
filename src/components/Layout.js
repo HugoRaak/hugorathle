@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {
     Loader,
     Navbar,
@@ -15,17 +15,10 @@ const Layout = ({location, children}) => {
         AOS.init();
         const preferenceTheme = localStorage.getItem("preference-theme");
         if (preferenceTheme === null || preferenceTheme === "dark") {
-            document.documentElement.setAttribute("data-theme", "dark");
+            document.documentElement.dataset.theme = 'dark';
         }
         setIsLoading(false);
     };
-
-    useEffect(() => {
-        const preferenceTheme = localStorage.getItem("preference-theme");
-        if (preferenceTheme === null || preferenceTheme === "dark") {
-            document.documentElement.setAttribute("data-theme", "dark");
-        }
-    }, []);
 
     return <>
         {isLoading ? (
