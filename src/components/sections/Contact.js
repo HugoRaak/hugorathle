@@ -1,13 +1,13 @@
 import React from "react";
-import {SectionTitle, LinkButton} from "@components";
+import {SectionTitle, SectionSubTitle, LinkButton} from "@components";
 
 const Contact = () => {
     return <section id="contact">
         <div className="pt-5">
             <SectionTitle>Get in touch</SectionTitle>
         </div>
-        <h2 className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-center opacity-70 mt-5">Have a project in mind?</h2>
-        <div className="text-center py-28 lg:py-40">
+        <SectionSubTitle>Have a project in mind?</SectionSubTitle>
+        <div className="text-center py-28 lg:py-40" data-aos="fade-up" data-aos-duration="1000">
             <LinkButton location="mailto:rathle.hugo@gmail.com">
                 <div className="flex space-x-[1vw] py-[0.5vw]">
                     <p>Say hello</p>

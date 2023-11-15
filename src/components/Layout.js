@@ -6,10 +6,13 @@ import {
     Footer,
     ScrollTop
 } from "@components";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Layout = ({children}) => {
     const [isLoading, setIsLoading] = useState(true);
     const finishLoading = () => {
+        AOS.init();
         const preferenceTheme = localStorage.getItem("preference-theme");
         if (preferenceTheme === null || preferenceTheme === "dark") {
             document.documentElement.setAttribute("data-theme", "dark");
