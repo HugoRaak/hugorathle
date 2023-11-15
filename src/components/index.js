@@ -9,6 +9,7 @@ export { default as Layout } from './Layout';
 export { default as Loader } from './Loader';
 export { default as Navbar } from './navbar/Navbar';
 export { default as Footer } from './Footer';
+export { default as NotFound } from './sections/NotFound';
 export { default as Home } from './sections/home/Home';
 export { default as About } from './sections/about/About';
 export { default as Work } from './sections/work/Work';

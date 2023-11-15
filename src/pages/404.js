@@ -1,9 +1,12 @@
-import * as React from "react"
+import * as React from "react";
+import {Layout, NotFound} from "@components";
 
-const NotFoundPage = () => {
-    return <div>not found</div>
-}
+const NotFoundPage = ({location}) => {
+    return <Layout location={location}>
+        <NotFound/>
+    </Layout>;
+};
 
-export default NotFoundPage
+export default NotFoundPage;
 
-export const Head = () => <title>Not found</title>
+export const Head = () => <title>Not found</title>;

@@ -13,11 +13,11 @@ const links = [
     {location: 'contact', name: 'Contact'}
 ];
 
-const Navbar = () => {
+const Navbar = ({isIndexPage}) => {
     const {themeSwitcherRef} = useThemeSwitcher();
-    const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(!isIndexPage);
     const [isSm, setIsSm] = useState(false);
-    const [isAppearing, setIsAppearing] = useState(true);
+    const [isAppearing, setIsAppearing] = useState(isIndexPage);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isShow, setIsShow] = useState(true);
     const [isInitialPos, setIsInitialPos] = useState(true);
@@ -35,20 +35,23 @@ const Navbar = () => {
             prevScrollY = currentScrollY > 0 ? currentScrollY : 0;
         };
 
-        if(window.innerWidth < 640) {
-            setIsSm(true);
-        }
-
-        const timeoutMounted = setTimeout(() => setIsMounted(true), 100);
-        const timeoutAppearing = setTimeout(() => setIsAppearing(false), 1000);
+        const timeoutMounted = isIndexPage ? setTimeout(() => setIsMounted(true), 100) : null;
+        const timeoutAppearing = isIndexPage ? setTimeout(() => setIsAppearing(false), 1000) : null;
+        if(window.innerWidth < 640 && isIndexPage) setIsSm(true);
 
         window.addEventListener('scroll', onScroll);
         return () => {
-            clearTimeout(timeoutMounted);
-            clearTimeout(timeoutAppearing);
-            window.removeEventListener('scroll', onScroll)
+            if(isIndexPage) {
+                clearTimeout(timeoutMounted);
+                clearTimeout(timeoutAppearing);
+            }
+            window.removeEventListener('scroll', onScroll);
         };
     }, []);
+
+    const timeout = isIndexPage ? 2000 : 0;
+    const fadeDownClass = isIndexPage ? 'fadedown' : '';
+    const slideRightFullClass = isIndexPage ? 'slideright-full' : '';
 
     return <header className={"fixed top-0 z-40 bg-white dark:bg-darkTheme transition-all duration-300 ease-out shadow- shadow-black"
                    + (!isInitialPos && isShow ? ' shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] ' : '')
@@ -59,15 +62,16 @@ const Navbar = () => {
             </a>
             <div className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20">
                 <TransitionGroup component={null}>
-                    {isMounted && links.map((link, i) => <CSSTransition key={i} classNames="fadedown" timeout={2000}>
-                            <NavLink key={i} location={`#${link.location}`} style={isAppearing ? {transitionDelay: `${i * 100}ms`} : {}}>
+                    {isMounted && links.map((link, i) => <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
+                            <NavLink key={i} location={isIndexPage ? '' : '/' + `#${link.location}`}
+                                     style={isAppearing ? {transitionDelay: `${i * 100}ms`} : {}}>
                                 {link.name}
                             </NavLink>
                     </CSSTransition>)}
                 </TransitionGroup>
             </div>
             <TransitionGroup component={null}>
-                {isMounted && <CSSTransition classNames="fadedown" timeout={2000} in={!isSm}>
+                {isMounted && <CSSTransition classNames={fadeDownClass} timeout={timeout} in={!isSm}>
                     <>
                         {!isOpenMenu && <div className="hidden sm:block pr-5 right-0"
                                              style={isAppearing ? {transitionDelay: `${links.length * 100}ms`} : {}}>
@@ -77,14 +81,14 @@ const Navbar = () => {
                 </CSSTransition>}
             </TransitionGroup>
             <TransitionGroup component={null}>
-                {isMounted && <CSSTransition classNames="fadedown" timeout={2000} in={isSm}>
+                {isMounted && <CSSTransition classNames={fadeDownClass} timeout={timeout} in={isSm}>
                     <ButtonToggleMenu isOpenMenu={isOpenMenu} toggleIsOpenMenu={toggleIsOpenMenu}/>
                 </CSSTransition>}
             </TransitionGroup>
             {isMounted && <SidebarMenu isOpenMenu={isOpenMenu}/>}
         </div>
         <TransitionGroup component={null}>
-            {isMounted && <CSSTransition classNames="slideright-full" timeout={2000}>
+            {isMounted && <CSSTransition classNames={slideRightFullClass} timeout={timeout}>
                 <Separator className="transition-filter duration-300 ease-out"
                            style={{transitionDelay: `${!isSm ? links.length * 100 + 100 : 100}ms`}}/>
             </CSSTransition>}
