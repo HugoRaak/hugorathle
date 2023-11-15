@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {Separator, NavLink} from "@components";
+import {Separator} from "@components";
 import {useThemeSwitcher} from "@hooks";
+import {NavLink} from "./NavLink";
 import Logo from "./Logo";
 import {ButtonToggleMenu} from "./sideBarMenu/ButtonToggleMenu";
 import {SidebarMenu} from "./sideBarMenu/SidebarMenu";

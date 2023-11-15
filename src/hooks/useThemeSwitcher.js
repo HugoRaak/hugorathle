@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {ThemeSwitcherContext} from "@components/sections/navbar/themeSwitcher/themeSwitcherContext";
+import {ThemeSwitcherContext} from "@components/navbar/themeSwitcher/themeSwitcherContext";
 
 const useThemeSwitcher = () => {
     const {themeSwitcherRef} = useContext(ThemeSwitcherContext);

@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink} from "@components";
+import {NavLink} from "../NavLink";
 import {useThemeSwitcher} from "@hooks";
 
 /**
