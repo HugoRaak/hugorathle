@@ -6,6 +6,7 @@ import {ButtonToggleMenu} from "./sideBarMenu/ButtonToggleMenu";
 import {SidebarMenu} from "./sideBarMenu/SidebarMenu";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import {ThemeSwitcher} from "./ThemeSwitcher";
+import {Link} from "gatsby";
 
 const links = [
     {location: 'about', name: 'About'},
@@ -56,13 +57,13 @@ const Navbar = ({isIndexPage}) => {
                    + (!isInitialPos && isShow ? ' shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] ' : '')
                    + (isShow || isOpenMenu ? ' translate-y-0' : ' translate-y-[-105%]')}>
         <div className="flex justify-between items-center w-full xs:px-5">
-            <a href="/" className="transition-filter duration-300 ease-out">
+            <Link to="/" className="transition-filter duration-300 ease-out">
                 <Logo/>
-            </a>
+            </Link>
             <div className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20">
                 <TransitionGroup component={null}>
                     {isMounted && links.map((link, i) => <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                            <NavLink key={i} location={isIndexPage ? '' : '/' + `#${link.location}`}
+                            <NavLink key={i} location={`/#${link.location}`}
                                      style={isAppearing ? {transitionDelay: `${i * 100}ms`} : {}}>
                                 {link.name}
                             </NavLink>

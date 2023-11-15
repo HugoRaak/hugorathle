@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {
     Loader,
     Navbar,
@@ -19,6 +19,20 @@ const Layout = ({location, children}) => {
         }
         setIsLoading(false);
     };
+
+    useEffect(() => {
+        if(isLoading) return;
+
+        if (location.hash) {
+            setTimeout(() => {
+                const section = document.getElementById(location.hash.substring(1));
+                if (section) {
+                    section.scrollIntoView();
+                    section.focus();
+                }
+            }, 0);
+        }
+    }, [isLoading]);
 
     return <>
         {isLoading ? (
