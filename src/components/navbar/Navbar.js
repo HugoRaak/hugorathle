@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {Separator} from "@components";
-import {useThemeSwitcher} from "@hooks";
 import {NavLink} from "./NavLink";
 import Logo from "./Logo";
 import {ButtonToggleMenu} from "./sideBarMenu/ButtonToggleMenu";
 import {SidebarMenu} from "./sideBarMenu/SidebarMenu";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
+import {ThemeSwitcher} from "./ThemeSwitcher";
 
 const links = [
     {location: 'about', name: 'About'},
@@ -14,7 +14,6 @@ const links = [
 ];
 
 const Navbar = ({isIndexPage}) => {
-    const {themeSwitcherRef} = useThemeSwitcher();
     const [isMounted, setIsMounted] = useState(!isIndexPage);
     const [isSm, setIsSm] = useState(false);
     const [isAppearing, setIsAppearing] = useState(isIndexPage);
@@ -75,7 +74,7 @@ const Navbar = ({isIndexPage}) => {
                     <>
                         {!isOpenMenu && <div className="hidden sm:block pr-5 right-0"
                                              style={isAppearing ? {transitionDelay: `${links.length * 100}ms`} : {}}>
-                            {themeSwitcherRef.current}
+                            <ThemeSwitcher/>
                         </div>}
                     </>
                 </CSSTransition>}

@@ -4,7 +4,6 @@ export { default as SectionTitle } from './utils/titles/SectionTitle';
 export { default as SectionSubTitle } from './utils/titles/SectionSubTitle';
 export { default as Separator } from './utils/Separator';
 export { default as ScrollTop } from './utils/ScrollTop';
-export { default as ThemeSwitcherContextProvider } from './navbar/themeSwitcher/themeSwitcherContext';
 export { default as Layout } from './Layout';
 export { default as Loader } from './Loader';
 export { default as Navbar } from './navbar/Navbar';

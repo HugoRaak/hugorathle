@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {
     Loader,
-    ThemeSwitcherContextProvider,
     Navbar,
     Footer,
     ScrollTop
@@ -34,9 +33,7 @@ const Layout = ({location, children}) => {
         ) : (
             <div className="text-dark dark:bg-darkTheme dark:text-white min-h-screen overflow-x-hidden
             transition-colors duration-300 ease-out">
-                <ThemeSwitcherContextProvider>
-                    <Navbar isIndexPage={isIndexPage}/>
-                </ThemeSwitcherContextProvider>
+                <Navbar isIndexPage={isIndexPage}/>
                 <div className="pl-[9vw] xs:px-[10vw] transition-filter duration-300 ease-out">
                     {children}
                 </div>
