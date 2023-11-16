@@ -6,8 +6,9 @@
 @tailwind utilities;
 
 :root {
-    --orange: #D67300;
-    --dark-theme: #2B2B2B;
+    --orange: #d67300;
+    --orange-scrollbar: rgba(214, 115, 0, 0.8);
+    --dark-theme: #2b2b2b;
 }
 
 /* global */
@@ -22,23 +23,23 @@ html {
 html {
     scrollbar-width: thin;
     overflow-y: auto;
-    scrollbar-color: var(--orange);
+    scrollbar-color: var(--orange-scrollbar);
 }
 html::-webkit-scrollbar {
     width: 12px;
 }
 html::-webkit-scrollbar-track {
-    background: #FFF;
+    background: #fff;
 }
 html::-webkit-scrollbar-thumb {
-    background-color: var(--orange);
-    border: 3px solid #FFF;
+    background-color: var(--orange-scrollbar);
+    border: 3px solid #fff;
     border-radius: 10px;
 }
-html[data-theme="dark"]::-webkit-scrollbar-track {
+html[data-theme='dark']::-webkit-scrollbar-track {
     background: var(--dark-theme);
 }
-html[data-theme="dark"]::-webkit-scrollbar-thumb {
+html[data-theme='dark']::-webkit-scrollbar-thumb {
     border: 3px solid var(--dark-theme);
 }
 /* end scroll bar */
@@ -51,7 +52,9 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 .fadedown-enter-active {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity .3s, transform .3s;
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
 }
 /* end transition fade down */
 
@@ -63,7 +66,9 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 .fadeup-enter-active {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity .3s, transform .3s;
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
 }
 /* end transition fade up */
 
@@ -79,8 +84,9 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 
 /* link hover */
 @media (hover: hover) {
-    .link::before, .link::after {
-        content: "";
+    .link::before,
+    .link::after {
+        content: '';
         position: absolute;
         width: 90%;
         height: 1px;
@@ -126,11 +132,7 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 /* end theme switcher */
 
 .radial-gradient {
-    background-image: radial-gradient(
-            50% 50% at 50% 50%,
-            var(--orange) 81.77%,
-            rgba(0, 0, 0, 0) 100%
-    );
+    background-image: radial-gradient(50% 50% at 50% 50%, var(--orange) 81.77%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* hamburger button */
@@ -143,7 +145,7 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
     --offset: -38;
     stroke-dasharray: var(--length) var(--total-length);
     stroke-dashoffset: var(--offset);
-    transition: all .4s cubic-bezier(.645, .045, .355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .menu__ham.open .ham__l1,
 .menu__ham.open .ham__l3 {
@@ -192,8 +194,8 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 /* end animation bounce scroll-top */
 
 .transition-fill {
-    transition: fill .3s ease-out;
+    transition: fill 0.3s ease-out;
 }
 .transition-stroke {
-    transition: stroke .3s ease-out;
+    transition: stroke 0.3s ease-out;
 }

@@ -1,15 +1,15 @@
-import * as React from "react";
-import Typed from "typed.js";
+import * as React from 'react';
+import Typed from 'typed.js';
 
 export const TypingAnimate = () => {
     const el = React.useRef(null);
 
     React.useEffect(() => {
         const typed = new Typed(el.current, {
-            strings: ["passionate.", "versatile.", "serious.", "creative.", "curious."],
+            strings: ['passionate.', 'versatile.', 'serious.', 'creative.', 'curious.'],
             typeSpeed: 100,
             backSpeed: 50,
-            loop: true
+            loop: true,
         });
 
         return () => {
@@ -17,5 +17,5 @@ export const TypingAnimate = () => {
         };
     }, []);
 
-    return <span ref={el} className="text-orange"/>
-}
+    return <span ref={el} className="text-orange" />;
+};

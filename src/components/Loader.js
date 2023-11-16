@@ -1,8 +1,8 @@
-import React, {useCallback, useEffect, useState} from "react";
-import anime from "animejs";
-import {IconLogo, IconRaak} from "@components/icons";
+import React, { useCallback, useEffect, useState } from 'react';
+import anime from 'animejs';
+import { IconLogo, IconRaak } from '@components/icons';
 
-const Loader = ({finishLoading}) => {
+const Loader = ({ finishLoading }) => {
     const [isMounted, setIsMounted] = useState(false);
     const [isXs, setIsXs] = useState(false);
     const [is2Xs, setIs2Xs] = useState(false);
@@ -23,34 +23,45 @@ const Loader = ({finishLoading}) => {
             },
             easing: 'easeInOutQuart',
             delay: function (path, i) {
-                return i * 250;
-            }
-        })
+                return i * 150;
+            },
+        });
 
-        if(!is2Xs) loader.add({
-                targets: '#a',
-                strokeDashoffset: [anime.setDashoffset, 0],
-                duration: 1000,
-                easing: 'easeInOutSine',
-            })
-            .add({
-                targets: '#R',
-                duration: 1000,
-                translateX: [-100, 0],
-                easing: 'easeInOutQuart',
-            }, '-=400')
-            .add({
-                targets: '#k',
-                duration: 1000,
-                translateX: [100, 0],
-                easing: 'easeInOutQuart',
-            }, '-=1000')
-            .add({
-                targets: '#Raak',
-                duration: 600,
-                fill: ['none', '#FFF'],
-                easing: 'easeInOutQuart',
-            });
+        if (!is2Xs)
+            loader
+                .add(
+                    {
+                        targets: '#a',
+                        strokeDashoffset: [anime.setDashoffset, 0],
+                        duration: 800,
+                        easing: 'easeInOutSine',
+                    },
+                    '-=400',
+                )
+                .add(
+                    {
+                        targets: '#R',
+                        duration: 1000,
+                        translateX: [-100, 0],
+                        easing: 'easeInOutQuart',
+                    },
+                    '-=500',
+                )
+                .add(
+                    {
+                        targets: '#k',
+                        duration: 1000,
+                        translateX: [100, 0],
+                        easing: 'easeInOutQuart',
+                    },
+                    '-=1000',
+                )
+                .add({
+                    targets: '#Raak',
+                    duration: 800,
+                    fill: ['none', '#FFF'],
+                    easing: 'easeInOutQuart',
+                });
 
         loader.add({
             targets: '#loader',
@@ -75,13 +86,21 @@ const Loader = ({finishLoading}) => {
         return () => clearTimeout(timeout);
     }, [animate]);
 
-    return <div className="fixed inset-0 h-full w-full bg-darkTheme">
-        <div id="loader" className={"flex items-center justify-center space-x-2 xs:space-x-0 mobile:space-x-2 absolute top-1/2 left-1/2 xs:px-5" + (isMounted ? " opacity-1" : " opacity-0")}
-             style={{transform: `translateX(-50%) translateY(-50%) ${isXs ? 'scale(1)' : 'scale(1.75)'}`}}>
-            <IconLogo className="logo__shape max-w-xl xs:max-w-2xl"/>
-            {!is2Xs && <IconRaak className="h-4 xs:h-7 w-auto"/>}
+    return (
+        <div className="fixed inset-0 h-full w-full bg-darkTheme">
+            <div
+                id="loader"
+                className={
+                    'flex items-center justify-center space-x-2 xs:space-x-0 mobile:space-x-2 absolute top-1/2 left-1/2 xs:px-5' +
+                    (isMounted ? ' opacity-1' : ' opacity-0')
+                }
+                style={{ transform: `translateX(-50%) translateY(-50%) ${isXs ? 'scale(1)' : 'scale(1.75)'}` }}
+            >
+                <IconLogo className="logo__shape max-w-xl xs:max-w-2xl" />
+                {!is2Xs && <IconRaak className="h-4 xs:h-7 w-auto" />}
+            </div>
         </div>
-    </div>;
+    );
 };
 
 export default Loader;

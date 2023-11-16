@@ -1,6 +1,6 @@
-import React from "react";
-import {Infos} from "./infos/Infos";
-import {Image} from "./infos/Image";
+import React from 'react';
+import { Infos } from './infos/Infos';
+import { Image } from './infos/Image';
 
 /**
  * @param {{
@@ -12,16 +12,23 @@ import {Image} from "./infos/Image";
  * }} project
  * @param {boolean} isEven
  */
-export const Project = ({project, isEven}) => {
+export const Project = ({ project, isEven }) => {
     const imageHref = project.viewOn.url ?? project.viewOn.github ?? '#';
 
-    return <li className="relative md:flex md:items-center md:space-x-[3vw] xl:space-x-16 my-24"
-               data-aos="fade-up" data-aos-duration="1000">
-        {isEven && <Image image={project.image} name={project.title}
-                          href={imageHref} isEven={isEven}/>}
-        <Infos title={project.title} description={project.description}
-               techs={project.tech} viewOn={project.viewOn}/>
-        {!isEven && <Image image={project.image} name={project.title}
-                           href={imageHref} isEven={isEven}/>}
-    </li>;
+    return (
+        <li
+            className="relative md:flex md:items-center md:space-x-[3vw] xl:space-x-16 my-24"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            {isEven && <Image image={project.image} name={project.title} href={imageHref} isEven={isEven} />}
+            <Infos
+                title={project.title}
+                description={project.description}
+                techs={project.tech}
+                viewOn={project.viewOn}
+            />
+            {!isEven && <Image image={project.image} name={project.title} href={imageHref} isEven={isEven} />}
+        </li>
+    );
 };

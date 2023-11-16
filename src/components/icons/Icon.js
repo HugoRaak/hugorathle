@@ -28,43 +28,43 @@ import {
 const Icon = ({ name, ...props }) => {
     switch (name) {
         case 'bootstrap':
-            return <IconBootstrap {...props}/>;
+            return <IconBootstrap {...props} />;
         case 'tailwind':
-            return <IconTailwind {...props}/>;
+            return <IconTailwind {...props} />;
         case 'javascript':
-            return <IconJavascript {...props}/>;
+            return <IconJavascript {...props} />;
         case 'react':
-            return <IconReact {...props}/>;
+            return <IconReact {...props} />;
         case 'vue':
-            return <IconVue {...props}/>;
+            return <IconVue {...props} />;
         case 'php':
-            return <IconPhp {...props}/>;
+            return <IconPhp {...props} />;
         case 'laravel':
-            return <IconLaravel {...props}/>;
+            return <IconLaravel {...props} />;
         case 'sql':
-            return <IconSql {...props}/>;
+            return <IconSql {...props} />;
         case 'c':
-            return <IconC {...props}/>;
+            return <IconC {...props} />;
         case 'python':
-            return <IconPython {...props}/>;
+            return <IconPython {...props} />;
         case 'git':
-            return <IconGit {...props}/>;
+            return <IconGit {...props} />;
         case 'figma':
-            return <IconFigma {...props}/>;
+            return <IconFigma {...props} />;
         case 'alpine':
-            return <IconAlpine {...props}/>;
+            return <IconAlpine {...props} />;
         case 'livewire':
-            return <IconLivewire {...props}/>;
+            return <IconLivewire {...props} />;
         case 'github':
-            return <IconGithub {...props}/>;
+            return <IconGithub {...props} />;
         case 'external':
-            return <IconExternal {...props}/>;
+            return <IconExternal {...props} />;
         case 'linkedin':
-            return <IconLinkedin {...props}/>;
+            return <IconLinkedin {...props} />;
         case 'discord':
-            return <IconDiscord {...props}/>;
+            return <IconDiscord {...props} />;
         default:
-            return <IconDefault title={name} {...props}/>;
+            return <IconDefault title={name} {...props} />;
     }
 };
 

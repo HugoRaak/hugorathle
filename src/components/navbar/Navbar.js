@@ -1,20 +1,20 @@
-import React, {useEffect, useState} from "react";
-import {Separator} from "@components";
-import {NavLink} from "./NavLink";
-import Logo from "./Logo";
-import {ButtonToggleMenu} from "./sideBarMenu/ButtonToggleMenu";
-import {SidebarMenu} from "./sideBarMenu/SidebarMenu";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
-import {ThemeSwitcher} from "./ThemeSwitcher";
-import {Link} from "gatsby";
+import React, { useEffect, useState } from 'react';
+import { Separator } from '@components';
+import { NavLink } from './NavLink';
+import Logo from './Logo';
+import { ButtonToggleMenu } from './sideBarMenu/ButtonToggleMenu';
+import { SidebarMenu } from './sideBarMenu/SidebarMenu';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { ThemeSwitcher } from './ThemeSwitcher';
+import { Link } from 'gatsby';
 
 const links = [
-    {location: 'about', name: 'About'},
-    {location: 'work', name: 'Work'},
-    {location: 'contact', name: 'Contact'}
+    { location: 'about', name: 'About' },
+    { location: 'work', name: 'Work' },
+    { location: 'contact', name: 'Contact' },
 ];
 
-const Navbar = ({isIndexPage}) => {
+const Navbar = ({ isIndexPage }) => {
     const [isMounted, setIsMounted] = useState(!isIndexPage);
     const [isSm, setIsSm] = useState(false);
     const [isAppearing, setIsAppearing] = useState(isIndexPage);
@@ -30,18 +30,18 @@ const Navbar = ({isIndexPage}) => {
         let prevScrollY = window.scrollY;
         const onScroll = () => {
             const currentScrollY = window.scrollY;
-            (currentScrollY < prevScrollY || currentScrollY < 50) ? setIsShow(true) : setIsShow(false);
+            currentScrollY < prevScrollY || currentScrollY < 50 ? setIsShow(true) : setIsShow(false);
             currentScrollY < 100 ? setIsInitialPos(true) : setIsInitialPos(false);
             prevScrollY = currentScrollY > 0 ? currentScrollY : 0;
         };
 
         const timeoutMounted = isIndexPage ? setTimeout(() => setIsMounted(true), 100) : null;
         const timeoutAppearing = isIndexPage ? setTimeout(() => setIsAppearing(false), 1000) : null;
-        if(window.innerWidth < 640 && isIndexPage) setIsSm(true);
+        if (window.innerWidth < 640 && isIndexPage) setIsSm(true);
 
         window.addEventListener('scroll', onScroll);
         return () => {
-            if(isIndexPage) {
+            if (isIndexPage) {
                 clearTimeout(timeoutMounted);
                 clearTimeout(timeoutAppearing);
             }
@@ -53,47 +53,71 @@ const Navbar = ({isIndexPage}) => {
     const fadeDownClass = isIndexPage ? 'fadedown' : '';
     const slideRightFullClass = isIndexPage ? 'slideright-full' : '';
 
-    return <header className={"fixed top-0 z-40 bg-white dark:bg-darkTheme transition-all duration-300 ease-out shadow- shadow-black"
-                   + (!isInitialPos && isShow ? ' shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] ' : '')
-                   + (isShow || isOpenMenu ? ' translate-y-0' : ' translate-y-[-105%]')}>
-        <div className="flex justify-between items-center w-full xs:px-5">
-            <Link to="/" className="transition-filter duration-300 ease-out">
-                <Logo/>
-            </Link>
-            <div className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20">
+    return (
+        <header
+            className={
+                'fixed top-0 z-40 bg-white dark:bg-darkTheme transition-all duration-300 ease-out shadow- shadow-black' +
+                (!isInitialPos && isShow ? ' shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] ' : '') +
+                (isShow || isOpenMenu ? ' translate-y-0' : ' translate-y-[-105%]')
+            }
+        >
+            <div className="flex justify-between items-center w-full xs:px-5">
+                <Link to="/" className="transition-filter duration-300 ease-out">
+                    <Logo />
+                </Link>
+                <div className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20 mt-1">
+                    <TransitionGroup component={null}>
+                        {isMounted &&
+                            links.map((link, i) => (
+                                <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
+                                    <NavLink
+                                        key={i}
+                                        location={`/#${link.location}`}
+                                        style={isAppearing ? { transitionDelay: `${i * 100}ms` } : {}}
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </CSSTransition>
+                            ))}
+                    </TransitionGroup>
+                </div>
                 <TransitionGroup component={null}>
-                    {isMounted && links.map((link, i) => <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                            <NavLink key={i} location={`/#${link.location}`}
-                                     style={isAppearing ? {transitionDelay: `${i * 100}ms`} : {}}>
-                                {link.name}
-                            </NavLink>
-                    </CSSTransition>)}
+                    {isMounted && (
+                        <CSSTransition classNames={fadeDownClass} timeout={timeout} in={!isSm}>
+                            <>
+                                {!isOpenMenu && (
+                                    <div
+                                        className="hidden sm:block pr-5 right-0"
+                                        style={isAppearing ? { transitionDelay: `${links.length * 100}ms` } : {}}
+                                    >
+                                        <ThemeSwitcher isIndexPage={isIndexPage} />
+                                    </div>
+                                )}
+                            </>
+                        </CSSTransition>
+                    )}
                 </TransitionGroup>
+                <TransitionGroup component={null}>
+                    {isMounted && (
+                        <CSSTransition classNames={fadeDownClass} timeout={timeout} in={isSm}>
+                            <ButtonToggleMenu isOpenMenu={isOpenMenu} toggleIsOpenMenu={toggleIsOpenMenu} />
+                        </CSSTransition>
+                    )}
+                </TransitionGroup>
+                {isMounted && <SidebarMenu isOpenMenu={isOpenMenu} />}
             </div>
             <TransitionGroup component={null}>
-                {isMounted && <CSSTransition classNames={fadeDownClass} timeout={timeout} in={!isSm}>
-                    <>
-                        {!isOpenMenu && <div className="hidden sm:block pr-5 right-0"
-                                             style={isAppearing ? {transitionDelay: `${links.length * 100}ms`} : {}}>
-                            <ThemeSwitcher isIndexPage={isIndexPage}/>
-                        </div>}
-                    </>
-                </CSSTransition>}
+                {isMounted && (
+                    <CSSTransition classNames={slideRightFullClass} timeout={timeout}>
+                        <Separator
+                            className="transition-filter duration-300 ease-out"
+                            style={{ transitionDelay: `${!isSm ? links.length * 100 + 100 : 100}ms` }}
+                        />
+                    </CSSTransition>
+                )}
             </TransitionGroup>
-            <TransitionGroup component={null}>
-                {isMounted && <CSSTransition classNames={fadeDownClass} timeout={timeout} in={isSm}>
-                    <ButtonToggleMenu isOpenMenu={isOpenMenu} toggleIsOpenMenu={toggleIsOpenMenu}/>
-                </CSSTransition>}
-            </TransitionGroup>
-            {isMounted && <SidebarMenu isOpenMenu={isOpenMenu}/>}
-        </div>
-        <TransitionGroup component={null}>
-            {isMounted && <CSSTransition classNames={slideRightFullClass} timeout={timeout}>
-                <Separator className="transition-filter duration-300 ease-out"
-                           style={{transitionDelay: `${!isSm ? links.length * 100 + 100 : 100}ms`}}/>
-            </CSSTransition>}
-        </TransitionGroup>
-    </header>;
+        </header>
+    );
 };
 
 export default Navbar;

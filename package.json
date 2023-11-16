@@ -1,40 +1,48 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Portfolio website",
-  "author": "Hugo Rathle | HugoRaak",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/HugoRaak/portfolio"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
-  },
-  "dependencies": {
-    "animejs": "^3.2.1",
-    "aos": "^2.3.4",
-    "gatsby": "^5.12.4",
-    "gatsby-plugin-image": "^3.12.3",
-    "gatsby-plugin-sharp": "^5.12.3",
-    "gatsby-source-filesystem": "^5.12.1",
-    "gatsby-transformer-json": "^5.12.0",
-    "gatsby-transformer-sharp": "^5.12.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-transition-group": "^4.4.5",
-    "typed.js": "^2.0.16"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "gatsby-plugin-postcss": "^6.12.0",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
-  }
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "Portfolio website",
+    "author": "Hugo Rathle | HugoRaak",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/HugoRaak/portfolio"
+    },
+    "keywords": [
+        "gatsby"
+    ],
+    "scripts": {
+        "develop": "gatsby develop",
+        "start": "gatsby develop",
+        "build": "gatsby build",
+        "serve": "gatsby serve",
+        "clean": "gatsby clean",
+        "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "dependencies": {
+        "animejs": "^3.2.1",
+        "aos": "^2.3.4",
+        "gatsby": "^5.12.4",
+        "gatsby-plugin-image": "^3.12.3",
+        "gatsby-plugin-sharp": "^5.12.3",
+        "gatsby-source-filesystem": "^5.12.1",
+        "gatsby-transformer-json": "^5.12.0",
+        "gatsby-transformer-sharp": "^5.12.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-transition-group": "^4.4.5",
+        "typed.js": "^2.0.16"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.16",
+        "gatsby-plugin-postcss": "^6.12.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^15.1.0",
+        "postcss": "^8.4.31",
+        "prettier": "3.1.0",
+        "tailwindcss": "^3.3.5"
+    }
 }
