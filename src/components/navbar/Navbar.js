@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Separator } from '@components';
 import { NavLink } from './NavLink';
 import Logo from './Logo';
@@ -22,6 +22,28 @@ const Navbar = ({ isIndexPage }) => {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [isShow, setIsShow] = useState(true);
     const [isInitialPos, setIsInitialPos] = useState(true);
+
+    const onNavLinkClick = useCallback(
+        isIndexPage
+            ? (e) => {
+                  if (!isInitialPos) {
+                      const targetElement = document.querySelector(window.location.hash);
+
+                      if (targetElement && targetElement.offsetTop < window.scrollY) {
+                          const navbarHeight = document.querySelector('header').offsetHeight;
+                          const targetPosition = targetElement.offsetTop - navbarHeight;
+
+                          e.preventDefault();
+                          window.scrollTo({
+                              top: targetPosition,
+                              behavior: 'smooth',
+                          });
+                      }
+                  }
+              }
+            : () => {},
+        [isInitialPos],
+    );
 
     const toggleIsOpenMenu = () => {
         setIsOpenMenu(!isOpenMenu);
@@ -79,6 +101,7 @@ const Navbar = ({ isIndexPage }) => {
                                         style={
                                             isAppearing ? { transitionDelay: `${i * 100}ms` } : {}
                                         }
+                                        onClick={onNavLinkClick}
                                     >
                                         {link.name}
                                     </NavLink>
@@ -116,7 +139,14 @@ const Navbar = ({ isIndexPage }) => {
                         </CSSTransition>
                     )}
                 </TransitionGroup>
-                {isMounted && <SidebarMenu isOpenMenu={isOpenMenu} isIndexPage={isIndexPage} />}
+                {isMounted && (
+                    <SidebarMenu
+                        links={links}
+                        onNavLinkClick={onNavLinkClick}
+                        isOpenMenu={isOpenMenu}
+                        isIndexPage={isIndexPage}
+                    />
+                )}
             </div>
             <TransitionGroup component={null}>
                 {isMounted && (

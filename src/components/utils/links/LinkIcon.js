@@ -13,7 +13,6 @@ const LinkIcon = ({ href, name, ...props }) => {
 LinkIcon.propTypes = {
     href: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    ...PropTypes.object,
 };
 
 export default LinkIcon;

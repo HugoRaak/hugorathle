@@ -9,20 +9,8 @@ export const ViewOn = ({ githubLink, urlLink }) => {
                 View on:
             </p>
             <div className="flex justify-start mobile:justify-center md:justify-start xl:justify-center space-x-2 tablet:space-x-5 mt-2">
-                {githubLink && (
-                    <LinkIcon
-                        href={githubLink}
-                        name="github"
-                        className="h-5 xs:h-6 tablet:h-7 sm:h-8 md:h-9 lg:h-10 w-auto"
-                    />
-                )}
-                {urlLink && (
-                    <LinkIcon
-                        href={urlLink}
-                        name="external"
-                        className="h-5 xs:h-6 tablet:h-7 sm:h-8 md:h-9 lg:h-10 w-auto"
-                    />
-                )}
+                {githubLink && <LinkIcon href={githubLink} name="github" className="icon-sm" />}
+                {urlLink && <LinkIcon href={urlLink} name="external" className="icon-sm" />}
             </div>
         </div>
     );

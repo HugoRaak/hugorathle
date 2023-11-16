@@ -5,8 +5,8 @@ const IconLogo = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="100"
-            height="100"
+            width="75"
+            height="75"
             viewBox="0 0 100 101"
             fill="none"
             className={className}

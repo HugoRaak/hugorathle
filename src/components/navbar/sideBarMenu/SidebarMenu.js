@@ -3,7 +3,7 @@ import { NavLink } from '../NavLink';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import PropTypes from 'prop-types';
 
-export const SidebarMenu = ({ isOpenMenu, isIndexPage }) => {
+export const SidebarMenu = ({ links, onNavLinkClick, isOpenMenu, isIndexPage }) => {
     return (
         <>
             <aside
@@ -17,9 +17,11 @@ export const SidebarMenu = ({ isOpenMenu, isIndexPage }) => {
                     </div>
                 )}
                 <nav className="flex flex-col space-y-10 text-center">
-                    <NavLink location={'#about'}>About</NavLink>
-                    <NavLink location={'#work'}>Work</NavLink>
-                    <NavLink location={'#contact'}>Contact</NavLink>
+                    {links.map((link, i) => (
+                        <NavLink key={i} location={`/#${link.location}`} onClick={onNavLinkClick}>
+                            {link.name}
+                        </NavLink>
+                    ))}
                 </nav>
             </aside>
             <div
@@ -35,6 +37,10 @@ export const SidebarMenu = ({ isOpenMenu, isIndexPage }) => {
 };
 
 SidebarMenu.propTypes = {
+    links: PropTypes.arrayOf(
+        PropTypes.shape({ location: PropTypes.string, name: PropTypes.string }),
+    ).isRequired,
+    onNavLinkClick: PropTypes.func.isRequired,
     isOpenMenu: PropTypes.bool.isRequired,
     isIndexPage: PropTypes.bool.isRequired,
 };

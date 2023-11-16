@@ -10,11 +10,7 @@ export const Technos = ({ techs }) => {
             </p>
             <div className="flex space-x-2 tablet-xs:space-x-5 mt-2">
                 {techs.map((tech, i) => (
-                    <Icon
-                        key={i}
-                        name={tech}
-                        className="h-5 xs:h-6 tablet:h-7 sm:h-8 md:h-9 lg:h-10 w-auto"
-                    />
+                    <Icon key={i} name={tech} className="icon-sm" />
                 ))}
             </div>
         </div>

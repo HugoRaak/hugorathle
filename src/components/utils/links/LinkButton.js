@@ -18,7 +18,6 @@ const LinkButton = ({ href, children, ...props }) => {
 LinkButton.propTypes = {
     href: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
-    ...PropTypes.object,
 };
 
 export default LinkButton;

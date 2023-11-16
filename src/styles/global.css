@@ -82,6 +82,15 @@ html[data-theme='dark']::-webkit-scrollbar-thumb {
 }
 /* end transition slide right */
 
+/* other transition style */
+.transition-fill {
+    transition: fill 0.3s ease-out;
+}
+.transition-stroke {
+    transition: stroke 0.3s ease-out;
+}
+/* end other transition style */
+
 /* link hover */
 @media (hover: hover) {
     .link::before,
@@ -197,9 +206,6 @@ html[data-theme='dark']::-webkit-scrollbar-thumb {
 }
 /* end animation bounce scroll-top */
 
-.transition-fill {
-    transition: fill 0.3s ease-out;
-}
-.transition-stroke {
-    transition: stroke 0.3s ease-out;
+.icon-sm {
+    @apply h-5 xs:h-6 tablet:h-7 sm:h-8 md:h-9 lg:h-10 w-auto;
 }

@@ -67,7 +67,6 @@ const Icon = ({ name, ...props }) => {
 
 Icon.propTypes = {
     name: PropTypes.string.isRequired,
-    ...PropTypes.object,
 };
 
 export default Icon;
