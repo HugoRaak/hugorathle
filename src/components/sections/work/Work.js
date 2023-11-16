@@ -8,7 +8,7 @@ const Work = () => {
             <div className="pt-5 mt-[10%]">
                 <SectionTitle>My works</SectionTitle>
             </div>
-            <SectionSubTitle>Projects I've worked on:</SectionSubTitle>
+            <SectionSubTitle>Projects I&rsquo;ve worked on:</SectionSubTitle>
             <Projects />
         </section>
     );

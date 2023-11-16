@@ -1,10 +1,7 @@
 import React from 'react';
 import { LinkIcon } from '@components';
+import PropTypes from 'prop-types';
 
-/**
- * @param {String|null} githubLink
- * @param {String|null} urlLink
- */
 export const ViewOn = ({ githubLink, urlLink }) => {
     return (
         <div className="mt-3 mobile:mt-0 md:mt-3 xl:mt-0">
@@ -29,4 +26,9 @@ export const ViewOn = ({ githubLink, urlLink }) => {
             </div>
         </div>
     );
+};
+
+ViewOn.propTypes = {
+    githubLink: PropTypes.string,
+    urlLink: PropTypes.string,
 };

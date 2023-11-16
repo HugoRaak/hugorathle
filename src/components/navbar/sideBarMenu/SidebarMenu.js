@@ -1,11 +1,9 @@
 import React from 'react';
 import { NavLink } from '../NavLink';
 import { ThemeSwitcher } from '../ThemeSwitcher';
+import PropTypes from 'prop-types';
 
-/**
- * @param {boolean} isOpenMenu
- */
-export const SidebarMenu = ({ isOpenMenu }) => {
+export const SidebarMenu = ({ isOpenMenu, isIndexPage }) => {
     return (
         <>
             <aside
@@ -15,7 +13,7 @@ export const SidebarMenu = ({ isOpenMenu }) => {
             >
                 {isOpenMenu && (
                     <div className="absolute z-[60] top-[1.60rem] left-2 xs:left-7">
-                        <ThemeSwitcher />
+                        <ThemeSwitcher isIndexPage={isIndexPage} />
                     </div>
                 )}
                 <nav className="flex flex-col space-y-10 text-center">
@@ -27,9 +25,16 @@ export const SidebarMenu = ({ isOpenMenu }) => {
             <div
                 className={
                     'overlay h-screen w-screen fixed top-0 left-0 z-[35] cursor-pointer transition-filter duration-300 ease-out' +
-                    (isOpenMenu ? ' backdrop-blur-[5px]' : ' backdrop-blur-none opacity-0 pointer-events-none')
+                    (isOpenMenu
+                        ? ' backdrop-blur-[5px]'
+                        : ' backdrop-blur-none opacity-0 pointer-events-none')
                 }
             />
         </>
     );
+};
+
+SidebarMenu.propTypes = {
+    isOpenMenu: PropTypes.bool.isRequired,
+    isIndexPage: PropTypes.bool.isRequired,
 };

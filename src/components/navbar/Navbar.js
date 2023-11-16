@@ -7,6 +7,7 @@ import { SidebarMenu } from './sideBarMenu/SidebarMenu';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
 const links = [
     { location: 'about', name: 'About' },
@@ -30,7 +31,9 @@ const Navbar = ({ isIndexPage }) => {
         let prevScrollY = window.scrollY;
         const onScroll = () => {
             const currentScrollY = window.scrollY;
-            currentScrollY < prevScrollY || currentScrollY < 50 ? setIsShow(true) : setIsShow(false);
+            currentScrollY < prevScrollY || currentScrollY < 50
+                ? setIsShow(true)
+                : setIsShow(false);
             currentScrollY < 100 ? setIsInitialPos(true) : setIsInitialPos(false);
             prevScrollY = currentScrollY > 0 ? currentScrollY : 0;
         };
@@ -73,7 +76,9 @@ const Navbar = ({ isIndexPage }) => {
                                     <NavLink
                                         key={i}
                                         location={`/#${link.location}`}
-                                        style={isAppearing ? { transitionDelay: `${i * 100}ms` } : {}}
+                                        style={
+                                            isAppearing ? { transitionDelay: `${i * 100}ms` } : {}
+                                        }
                                     >
                                         {link.name}
                                     </NavLink>
@@ -88,7 +93,11 @@ const Navbar = ({ isIndexPage }) => {
                                 {!isOpenMenu && (
                                     <div
                                         className="hidden sm:block pr-5 right-0"
-                                        style={isAppearing ? { transitionDelay: `${links.length * 100}ms` } : {}}
+                                        style={
+                                            isAppearing
+                                                ? { transitionDelay: `${links.length * 100}ms` }
+                                                : {}
+                                        }
                                     >
                                         <ThemeSwitcher isIndexPage={isIndexPage} />
                                     </div>
@@ -100,24 +109,33 @@ const Navbar = ({ isIndexPage }) => {
                 <TransitionGroup component={null}>
                     {isMounted && (
                         <CSSTransition classNames={fadeDownClass} timeout={timeout} in={isSm}>
-                            <ButtonToggleMenu isOpenMenu={isOpenMenu} toggleIsOpenMenu={toggleIsOpenMenu} />
+                            <ButtonToggleMenu
+                                isOpenMenu={isOpenMenu}
+                                toggleIsOpenMenu={toggleIsOpenMenu}
+                            />
                         </CSSTransition>
                     )}
                 </TransitionGroup>
-                {isMounted && <SidebarMenu isOpenMenu={isOpenMenu} />}
+                {isMounted && <SidebarMenu isOpenMenu={isOpenMenu} isIndexPage={isIndexPage} />}
             </div>
             <TransitionGroup component={null}>
                 {isMounted && (
                     <CSSTransition classNames={slideRightFullClass} timeout={timeout}>
                         <Separator
                             className="transition-filter duration-300 ease-out"
-                            style={{ transitionDelay: `${!isSm ? links.length * 100 + 100 : 100}ms` }}
+                            style={{
+                                transitionDelay: `${!isSm ? links.length * 100 + 100 : 100}ms`,
+                            }}
                         />
                     </CSSTransition>
                 )}
             </TransitionGroup>
         </header>
     );
+};
+
+Navbar.propTypes = {
+    isIndexPage: PropTypes.bool.isRequired,
 };
 
 export default Navbar;

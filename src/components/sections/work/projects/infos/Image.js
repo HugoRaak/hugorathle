@@ -1,5 +1,6 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Image = ({ image, name, href, isEven }) => {
     return (
@@ -24,4 +25,11 @@ export const Image = ({ image, name, href, isEven }) => {
             </a>
         </div>
     );
+};
+
+Image.propTypes = {
+    image: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+    isEven: PropTypes.bool.isRequired,
 };

@@ -1,15 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-/**
- * @param {number} height
- * @param {String} className
- */
-const IconLaravel = ({ height = 100, className = '' }) => {
+const IconLaravel = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={height * 1.03}
-            height={height}
+            width="103"
+            height="100"
             preserveAspectRatio="xMidYMid"
             viewBox="0 0 256 264"
             className={className}
@@ -21,6 +18,10 @@ const IconLaravel = ({ height = 100, className = '' }) => {
             />
         </svg>
     );
+};
+
+IconLaravel.propTypes = {
+    className: PropTypes.string,
 };
 
 export default IconLaravel;

@@ -3,15 +3,18 @@ import { LinkButton } from '@components';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const elements = [
-    <h1 className="text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold mt-[15vh]">
+    <h1
+        key={1}
+        className="text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold mt-[15vh]"
+    >
         Not Found
     </h1>,
-    <p className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl my-4">
-        You just hit a route that doesn&#39;t exist...
+    <p key={2} className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl my-4">
+        You just hit a route that doesn&rsquo;t exist...
         <br />
         the sadness.
     </p>,
-    <div className="mt-6">
+    <div key={3} className="mt-6">
         <LinkButton href="/">
             <p>Go home</p>
         </LinkButton>
@@ -38,7 +41,10 @@ const NotFound = () => {
                 {isMounted &&
                     elements.map((element, i) => (
                         <CSSTransition key={i} classNames="fadeup" timeout={2000}>
-                            <div key={i} style={isAppearing ? { transitionDelay: `${i * 100}ms` } : {}}>
+                            <div
+                                key={i}
+                                style={isAppearing ? { transitionDelay: `${i * 100}ms` } : {}}
+                            >
                                 {element}
                             </div>
                         </CSSTransition>

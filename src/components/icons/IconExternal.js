@@ -1,16 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-/**
- * @param {number} height
- * @param {String} className
- */
-const IconExternal = ({ height = 100, className = '' }) => {
-    const trueHeight = height * 0.9;
+const IconExternal = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={trueHeight}
-            height={trueHeight}
+            width="90"
+            height="90"
             viewBox="0 0 20 20"
             fill="none"
             className={className}
@@ -38,6 +34,10 @@ const IconExternal = ({ height = 100, className = '' }) => {
             </defs>
         </svg>
     );
+};
+
+IconExternal.propTypes = {
+    className: PropTypes.string,
 };
 
 export default IconExternal;

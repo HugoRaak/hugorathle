@@ -1,9 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-/**
- * @param {String} className
- * @param {String} classNameG
- */
 const IconRaak = ({ className = '', classNameG = '' }) => {
     return (
         <svg
@@ -33,6 +30,11 @@ const IconRaak = ({ className = '', classNameG = '' }) => {
             </g>
         </svg>
     );
+};
+
+IconRaak.propTypes = {
+    className: PropTypes.string,
+    classNameG: PropTypes.string,
 };
 
 export default IconRaak;

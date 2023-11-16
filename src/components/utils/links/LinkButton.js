@@ -1,13 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-/**
- * @param {() => void} onClick
- * @param {JSX.Element} children
- */
-const LinkButton = ({ location, children, ...props }) => {
+const LinkButton = ({ href, children, ...props }) => {
     return (
         <a
-            href={location}
+            href={href}
             className="group inline-block rounded border xs:border-2 border-orange hover:bg-orange hover:scale-[1.1] transition-all duration-300 ease-out"
             {...props}
         >
@@ -16,6 +13,12 @@ const LinkButton = ({ location, children, ...props }) => {
             </div>
         </a>
     );
+};
+
+LinkButton.propTypes = {
+    href: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    ...PropTypes.object,
 };
 
 export default LinkButton;

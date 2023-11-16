@@ -1,15 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-/**
- * @param {number} height
- * @param {String} className
- */
-const IconC = ({ height = 100, className = '' }) => {
+const IconC = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={height * 0.88}
-            height={height}
+            width="88"
+            height="100"
             viewBox="0 0 88 100"
             fill="none"
             className={className}
@@ -29,6 +26,10 @@ const IconC = ({ height = 100, className = '' }) => {
             />
         </svg>
     );
+};
+
+IconC.propTypes = {
+    className: PropTypes.string,
 };
 
 export default IconC;

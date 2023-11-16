@@ -9,7 +9,7 @@ const Contact = () => {
             </div>
             <SectionSubTitle>Have a project in mind?</SectionSubTitle>
             <div className="text-center py-28 lg:py-40" data-aos="fade-up" data-aos-duration="1000">
-                <LinkButton location="mailto:rathle.hugo@gmail.com">
+                <LinkButton href="mailto:rathle.hugo@gmail.com">
                     <div className="flex space-x-[1vw] py-[0.5vw]">
                         <p>Say hello</p>
                         <svg

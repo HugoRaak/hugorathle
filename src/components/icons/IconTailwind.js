@@ -1,15 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-/**
- * @param {number} height
- * @param {String} className
- */
-const IconTailwind = ({ height = 100, className = '' }) => {
+const IconTailwind = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={height * 1.67}
-            height={height}
+            width="167"
+            height="100"
             viewBox="0 0 167 100"
             fill="none"
             className={className}
@@ -21,6 +18,10 @@ const IconTailwind = ({ height = 100, className = '' }) => {
             />
         </svg>
     );
+};
+
+IconTailwind.propTypes = {
+    className: PropTypes.string,
 };
 
 export default IconTailwind;

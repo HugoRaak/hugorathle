@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import anime from 'animejs';
 import { IconLogo, IconRaak } from '@components/icons';
+import PropTypes from 'prop-types';
 
 const Loader = ({ finishLoading }) => {
     const [isMounted, setIsMounted] = useState(false);
@@ -94,13 +95,21 @@ const Loader = ({ finishLoading }) => {
                     'flex items-center justify-center space-x-2 xs:space-x-0 mobile:space-x-2 absolute top-1/2 left-1/2 xs:px-5' +
                     (isMounted ? ' opacity-1' : ' opacity-0')
                 }
-                style={{ transform: `translateX(-50%) translateY(-50%) ${isXs ? 'scale(1)' : 'scale(1.75)'}` }}
+                style={{
+                    transform: `translateX(-50%) translateY(-50%) ${
+                        isXs ? 'scale(1)' : 'scale(1.75)'
+                    }`,
+                }}
             >
                 <IconLogo className="logo__shape max-w-xl xs:max-w-2xl" />
                 {!is2Xs && <IconRaak className="h-4 xs:h-7 w-auto" />}
             </div>
         </div>
     );
+};
+
+Loader.propTypes = {
+    finishLoading: PropTypes.func.isRequired,
 };
 
 export default Loader;

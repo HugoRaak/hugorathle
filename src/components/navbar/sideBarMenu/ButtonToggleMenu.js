@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-/**
- * @param {boolean} isOpenMenu
- * @param {() => void} toggleIsOpenMenu
- */
 export const ButtonToggleMenu = ({ isOpenMenu, toggleIsOpenMenu }) => {
     useEffect(() => {
         if (isOpenMenu) {
@@ -40,11 +37,22 @@ export const ButtonToggleMenu = ({ isOpenMenu, toggleIsOpenMenu }) => {
                     className="fill-white opacity-0 cursor-pointer"
                 />
                 <g onClick={toggleIsOpenMenu} className="cursor-pointer">
-                    <path d="M0 40h62c13 0 6 28-4 18L35 35" className="ham__l1 stroke-black dark:stroke-white" />
+                    <path
+                        d="M0 40h62c13 0 6 28-4 18L35 35"
+                        className="ham__l1 stroke-black dark:stroke-white"
+                    />
                     <path d="M0 50h70" className="ham__l2 stroke-black dark:stroke-white" />
-                    <path d="M0 60h62c13 0 6-28-4-18L35 65" className="ham__l3 stroke-black dark:stroke-white" />
+                    <path
+                        d="M0 60h62c13 0 6-28-4-18L35 65"
+                        className="ham__l3 stroke-black dark:stroke-white"
+                    />
                 </g>
             </svg>
         </div>
     );
+};
+
+ButtonToggleMenu.propTypes = {
+    isOpenMenu: PropTypes.bool.isRequired,
+    toggleIsOpenMenu: PropTypes.func.isRequired,
 };

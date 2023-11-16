@@ -20,11 +20,8 @@ import {
     IconDiscord,
     IconDefault,
 } from '@components/icons';
+import PropTypes from 'prop-types';
 
-/**
- * @param {String} name
- * @param {Object} props
- */
 const Icon = ({ name, ...props }) => {
     switch (name) {
         case 'bootstrap':
@@ -66,6 +63,11 @@ const Icon = ({ name, ...props }) => {
         default:
             return <IconDefault title={name} {...props} />;
     }
+};
+
+Icon.propTypes = {
+    name: PropTypes.string.isRequired,
+    ...PropTypes.object,
 };
 
 export default Icon;

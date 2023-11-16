@@ -1,15 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-/**
- * @param {number} height
- * @param {String} className
- */
-const IconPhp = ({ height = 100, className = '' }) => {
+const IconPhp = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={height * 1.75}
-            height={height}
+            width="175"
+            height="100"
             viewBox="0 0 175 100"
             fill="none"
             className={className}
@@ -21,6 +18,10 @@ const IconPhp = ({ height = 100, className = '' }) => {
             />
         </svg>
     );
+};
+
+IconPhp.propTypes = {
+    className: PropTypes.string,
 };
 
 export default IconPhp;

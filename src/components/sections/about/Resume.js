@@ -4,7 +4,7 @@ import React from 'react';
 export const Resume = () => {
     return (
         <div className="text-center mt-[10%]">
-            <LinkButton location="/resume_Hugo_Rathle.pdf" target="_blank" rel="noreferrer">
+            <LinkButton href="/resume_Hugo_Rathle.pdf" target="_blank" rel="noreferrer">
                 <div className="flex space-x-[1vw]">
                     <p>Resume</p>
                     <svg

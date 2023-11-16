@@ -8,15 +8,23 @@ const Home = () => {
     const [isAppearing, setIsAppearing] = useState(true);
 
     const titles = [
-        <h1 className="text-sm 2xs:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">Hello, I'm</h1>,
-        <h2 className="text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold text-orange py-2">
+        <h1 key={1} className="text-sm 2xs:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
+            Hello, I&rsquo;m
+        </h1>,
+        <h2
+            key={2}
+            className="text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold text-orange py-2"
+        >
             Hugo Rathle.
         </h2>,
-        <h3 className="text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold opacity-50 dark:opacity-70 py-2">
+        <h3
+            key={3}
+            className="text-3xl 2xs:text-4xl xs:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold opacity-50 dark:opacity-70 py-2"
+        >
             A full-stack developer.
         </h3>,
-        <h4 className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
-            I'm <TypingAnimate />
+        <h4 key={4} className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
+            I&rsquo;m <TypingAnimate />
         </h4>,
     ];
 
@@ -37,7 +45,10 @@ const Home = () => {
                     {isMounted &&
                         titles.map((title, i) => (
                             <CSSTransition key={i} classNames="fadeup" timeout={2000}>
-                                <div key={i} style={isAppearing ? { transitionDelay: `${i * 100}ms` } : {}}>
+                                <div
+                                    key={i}
+                                    style={isAppearing ? { transitionDelay: `${i * 100}ms` } : {}}
+                                >
                                     {title}
                                 </div>
                             </CSSTransition>

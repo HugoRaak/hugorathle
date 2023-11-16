@@ -22,7 +22,9 @@ const Footer = () => {
                     className="h-5 xs:h-6 tablet:h-7 sm:h-8 md:h-9 lg:h-10 w-auto"
                 />
             </div>
-            <p className="text-sm sm:text-base opacity-50 px-5">© 2023 Designed & built by Hugo Rathle</p>
+            <p className="text-sm sm:text-base opacity-50 px-5">
+                © 2023 Designed & built by Hugo Rathle
+            </p>
         </footer>
     );
 };

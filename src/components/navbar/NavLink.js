@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
-/**
- * @param {string} location
- * @param {JSX.Element} children
- * @param {Object} style
- */
 export const NavLink = ({ location, children, style = {} }) => {
     return (
         <Link to={location} className="text-2xl" style={style}>
@@ -14,4 +10,10 @@ export const NavLink = ({ location, children, style = {} }) => {
             </span>
         </Link>
     );
+};
+
+NavLink.propTypes = {
+    location: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    style: PropTypes.object,
 };

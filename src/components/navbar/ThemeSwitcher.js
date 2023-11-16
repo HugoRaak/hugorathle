@@ -1,9 +1,13 @@
+/*eslint jsx-a11y/label-has-associated-control: "off"*/
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const ThemeSwitcher = ({ isIndexPage }) => {
     const [isMounted, setIsMounted] = useState(isIndexPage);
-    const [isDark, setIsDark] = useState(isIndexPage ? document.documentElement.hasAttribute('data-theme') : true);
+    const [isDark, setIsDark] = useState(
+        isIndexPage ? document.documentElement.hasAttribute('data-theme') : true,
+    );
 
     useEffect(() => {
         const preferenceTheme = localStorage.getItem('preference-theme');
@@ -35,7 +39,7 @@ export const ThemeSwitcher = ({ isIndexPage }) => {
                         type="checkbox"
                         id="theme-switcher"
                         className="hidden"
-                        aria-label="Change theme"
+                        aria-label="Switch theme"
                         onChange={(e) => setIsDark(e.target.checked)}
                         checked={isDark}
                     />
@@ -78,4 +82,8 @@ export const ThemeSwitcher = ({ isIndexPage }) => {
             )}
         </>
     );
+};
+
+ThemeSwitcher.propTypes = {
+    isIndexPage: PropTypes.bool.isRequired,
 };
