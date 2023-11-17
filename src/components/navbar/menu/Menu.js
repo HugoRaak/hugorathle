@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { SidebarMenu } from './SidebarMenu';
+import { Sidebar } from './Sidebar';
 
 export const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndexPage }) => {
     const buttonRef = useRef(null);
@@ -135,7 +135,7 @@ export const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndex
                     </g>
                 </svg>
             </div>
-            <SidebarMenu
+            <Sidebar
                 links={links}
                 onNavLinkClick={onNavLinkClick}
                 isOpenMenu={isOpenMenu}

@@ -23,25 +23,27 @@ const Navbar = ({ isIndexPage }) => {
     const [isInitialPos, setIsInitialPos] = useState(true);
 
     const onNavLinkClick = useCallback(
-        isIndexPage
-            ? (e) => {
-                  if (!isInitialPos) {
-                      const targetElement = document?.querySelector(window.location.hash);
+        (e) => {
+            e.currentTarget.blur();
 
-                      if (targetElement && targetElement.offsetTop < window.scrollY) {
-                          const navbarHeight = document.querySelector('header').offsetHeight;
-                          const targetPosition = targetElement.offsetTop - navbarHeight;
+            if (isIndexPage && typeof document !== 'undefined' && !isInitialPos) {
+                const targetElement = document.querySelector(
+                    `#${e.currentTarget.href.split('#')[1]}`,
+                );
 
-                          e.preventDefault();
-                          window.scrollTo({
-                              top: targetPosition,
-                              behavior: 'smooth',
-                          });
-                      }
-                  }
-              }
-            : () => {},
-        [isInitialPos],
+                if (targetElement && targetElement.offsetTop < window.scrollY) {
+                    const navbarHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth',
+                    });
+                }
+            }
+        },
+        [isInitialPos, isMounted],
     );
 
     useEffect(() => {
@@ -98,15 +100,18 @@ const Navbar = ({ isIndexPage }) => {
                                         key={i}
                                         classNames={fadeDownClass}
                                         timeout={timeout}
+                                        in={!isSm}
                                     >
-                                        <li key={i}>
+                                        <li
+                                            key={i}
+                                            style={
+                                                isAppearing
+                                                    ? { transitionDelay: `${i * 100}ms` }
+                                                    : {}
+                                            }
+                                        >
                                             <NavLink
                                                 location={`/#${link.location}`}
-                                                style={
-                                                    isAppearing
-                                                        ? { transitionDelay: `${i * 100}ms` }
-                                                        : {}
-                                                }
                                                 onClick={onNavLinkClick}
                                             >
                                                 {link.name}
@@ -124,11 +129,7 @@ const Navbar = ({ isIndexPage }) => {
                                 {!isOpenMenu && (
                                     <div
                                         className="hidden sm:block pr-5 right-0"
-                                        style={
-                                            isAppearing
-                                                ? { transitionDelay: `${links.length * 100}ms` }
-                                                : {}
-                                        }
+                                        style={{ transitionDelay: `${links.length * 100}ms` }}
                                     >
                                         <ThemeSwitcher isIndexPage={isIndexPage} />
                                     </div>

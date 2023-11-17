@@ -3,7 +3,7 @@ import { NavLink } from '../NavLink';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import PropTypes from 'prop-types';
 
-export const SidebarMenu = forwardRef(({ links, onNavLinkClick, isOpenMenu, isIndexPage }, ref) => {
+export const Sidebar = forwardRef(({ links, onNavLinkClick, isOpenMenu, isIndexPage }, ref) => {
     return (
         <>
             <aside
@@ -45,9 +45,9 @@ export const SidebarMenu = forwardRef(({ links, onNavLinkClick, isOpenMenu, isIn
     );
 });
 
-SidebarMenu.displayName = 'SidebarMenu';
+Sidebar.displayName = 'SidebarMenu';
 
-SidebarMenu.propTypes = {
+Sidebar.propTypes = {
     links: PropTypes.arrayOf(
         PropTypes.shape({ location: PropTypes.string, name: PropTypes.string }),
     ).isRequired,
