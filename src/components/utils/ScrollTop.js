@@ -26,8 +26,8 @@ const ScrollTop = () => {
                 'scroll-top flex justify-center items-center ' +
                 'fixed bottom-2 right-0 2xs:bottom-3 2xs:right-1 mobile:bottom-5 mobile:right-3 ' +
                 'w-6 h-6 2xs:w-8 2xs:h-8 mobile:w-12 mobile:h-12 z-[35] ' +
-                'rounded-full bg-white dark:bg-darkTheme shadow-inner shadow-black/40 dark:shadow-black/70 ' +
-                'border border-gray-200 dark:border-[#323232] cursor-pointer' +
+                'rounded-full bg-gray-200 dark:bg-neutral-800 shadow-inner shadow-black/40 dark:shadow-black/70 ' +
+                'border border-gray-300 dark:border-neutral-700 cursor-pointer' +
                 (isShow ? ' opacity-1 translate-y-0 ' : ' opacity-0 -translate-y-10 ') +
                 'transition-all duration-300 ease-out'
             }

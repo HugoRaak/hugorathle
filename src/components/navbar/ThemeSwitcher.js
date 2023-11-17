@@ -37,7 +37,7 @@ export const ThemeSwitcher = ({ isIndexPage }) => {
                 <>
                     <button
                         id="theme-switcher"
-                        className={`relative block w-12 h-6 bg-white dark:bg-darkTheme rounded-full shadow-inner shadow-black/40 dark:shadow-black/70 border border-gray-200 dark:border-[#323232] cursor-pointer transition-all duration-300 ease-out ${
+                        className={`relative block w-12 h-6 bg-slate-100 dark:bg-neutral-800 rounded-full shadow-inner shadow-black/40 dark:shadow-black/70 border border-gray-200 dark:border-[#323232] cursor-pointer transition-all duration-300 ease-out ${
                             isDark ? 'darkChoice' : ''
                         }`}
                         onClick={() => setIsDark(!isDark)}
