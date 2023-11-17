@@ -18,7 +18,7 @@ const Contact = () => {
                             height="30"
                             viewBox="0 0 32 30"
                             fill="none"
-                            className="fill-orange group-hover:fill-black w-auto h-3 2xs:h-4 xs:h-5 tablet-xs:h-6 sm:h-7 md:h-8 lg:h-9 pl-1 2xs:mt-1 tablet-xs:mt-0"
+                            className="fill-orange group-hover:fill-black group-focus:fill-black w-auto h-3 2xs:h-4 xs:h-5 tablet-xs:h-6 sm:h-7 md:h-8 lg:h-9 pl-1 2xs:mt-1 tablet-xs:mt-0"
                         >
                             <path d="M31.51 0 .774 15 12.3 18.75 16.142 30 31.51 0Z" />
                         </svg>

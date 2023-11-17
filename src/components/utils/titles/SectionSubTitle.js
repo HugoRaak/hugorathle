@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const SectionSubTitle = ({ children }) => {
     return (
         <h6
-            className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-center opacity-70 mt-5"
-            data-aos="fade-up"
+            className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-center mt-5 t"
+            data-aos="opacity07-fade-up"
             data-aos-duration="1000"
         >
             {children}

@@ -2,12 +2,16 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-export const NavLink = ({ location, onClick, children, style = {} }) => {
+export const NavLink = ({ location, onClick, children, style = {}, tabIndex = 0 }) => {
     return (
-        <Link to={location} className="text-2xl" style={style} onClick={onClick}>
-            <span className="link relative transition-opacity duration-300 opacity-75 hover:opacity-100">
-                {children}
-            </span>
+        <Link
+            to={location}
+            className="link text-2xl opacity-75 transition-opacity duration-300 ease-out hover:opacity-100 focus:opacity-100"
+            style={style}
+            onClick={onClick}
+            tabIndex={tabIndex}
+        >
+            <span className="relative">{children}</span>
         </Link>
     );
 };
@@ -17,4 +21,5 @@ NavLink.propTypes = {
     onClick: PropTypes.func.isRequired,
     children: PropTypes.node.isRequired,
     style: PropTypes.object,
+    tabIndex: PropTypes.number,
 };

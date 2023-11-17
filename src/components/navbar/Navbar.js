@@ -2,8 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Separator } from '@components';
 import { NavLink } from './NavLink';
 import Logo from './Logo';
-import { ButtonToggleMenu } from './sideBarMenu/ButtonToggleMenu';
-import { SidebarMenu } from './sideBarMenu/SidebarMenu';
+import { Menu } from './menu/Menu';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Link } from 'gatsby';
@@ -27,7 +26,7 @@ const Navbar = ({ isIndexPage }) => {
         isIndexPage
             ? (e) => {
                   if (!isInitialPos) {
-                      const targetElement = document.querySelector(window.location.hash);
+                      const targetElement = document?.querySelector(window.location.hash);
 
                       if (targetElement && targetElement.offsetTop < window.scrollY) {
                           const navbarHeight = document.querySelector('header').offsetHeight;
@@ -44,10 +43,6 @@ const Navbar = ({ isIndexPage }) => {
             : () => {},
         [isInitialPos],
     );
-
-    const toggleIsOpenMenu = () => {
-        setIsOpenMenu(!isOpenMenu);
-    };
 
     useEffect(() => {
         let prevScrollY = window.scrollY;
@@ -81,34 +76,47 @@ const Navbar = ({ isIndexPage }) => {
     return (
         <header
             className={
-                'fixed top-0 z-40 bg-white dark:bg-darkTheme transition-all duration-300 ease-out shadow- shadow-black' +
+                'fixed top-0 z-40 bg-white dark:bg-darkTheme transition-all duration-300 ease-out shadow-black' +
                 (!isInitialPos && isShow ? ' shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] ' : '') +
-                (isShow || isOpenMenu ? ' translate-y-0' : ' translate-y-[-105%]')
+                (isShow || isOpenMenu ? ' translate-y-0' : ' translate-y-[-105%]') +
+                ' focus-within:translate-y-0'
             }
         >
             <div className="flex justify-between items-center w-full xs:px-5">
-                <Link to="/" className="transition-filter duration-300 ease-out">
+                <Link
+                    to="/"
+                    className="transition-filter duration-300 ease-out focus:outline-offset-0"
+                >
                     <Logo />
                 </Link>
-                <div className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20 mt-1">
-                    <TransitionGroup component={null}>
-                        {isMounted &&
-                            links.map((link, i) => (
-                                <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                                    <NavLink
+                <nav>
+                    <ol className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20 mt-1">
+                        <TransitionGroup component={null}>
+                            {isMounted &&
+                                links.map((link, i) => (
+                                    <CSSTransition
                                         key={i}
-                                        location={`/#${link.location}`}
-                                        style={
-                                            isAppearing ? { transitionDelay: `${i * 100}ms` } : {}
-                                        }
-                                        onClick={onNavLinkClick}
+                                        classNames={fadeDownClass}
+                                        timeout={timeout}
                                     >
-                                        {link.name}
-                                    </NavLink>
-                                </CSSTransition>
-                            ))}
-                    </TransitionGroup>
-                </div>
+                                        <li key={i}>
+                                            <NavLink
+                                                location={`/#${link.location}`}
+                                                style={
+                                                    isAppearing
+                                                        ? { transitionDelay: `${i * 100}ms` }
+                                                        : {}
+                                                }
+                                                onClick={onNavLinkClick}
+                                            >
+                                                {link.name}
+                                            </NavLink>
+                                        </li>
+                                    </CSSTransition>
+                                ))}
+                        </TransitionGroup>
+                    </ol>
+                </nav>
                 <TransitionGroup component={null}>
                     {isMounted && (
                         <CSSTransition classNames={fadeDownClass} timeout={timeout} in={!isSm}>
@@ -132,21 +140,16 @@ const Navbar = ({ isIndexPage }) => {
                 <TransitionGroup component={null}>
                     {isMounted && (
                         <CSSTransition classNames={fadeDownClass} timeout={timeout} in={isSm}>
-                            <ButtonToggleMenu
+                            <Menu
                                 isOpenMenu={isOpenMenu}
-                                toggleIsOpenMenu={toggleIsOpenMenu}
+                                setIsOpenMenu={setIsOpenMenu}
+                                links={links}
+                                onNavLinkClick={onNavLinkClick}
+                                isIndexPage={isIndexPage}
                             />
                         </CSSTransition>
                     )}
                 </TransitionGroup>
-                {isMounted && (
-                    <SidebarMenu
-                        links={links}
-                        onNavLinkClick={onNavLinkClick}
-                        isOpenMenu={isOpenMenu}
-                        isIndexPage={isIndexPage}
-                    />
-                )}
             </div>
             <TransitionGroup component={null}>
                 {isMounted && (

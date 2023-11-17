@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { NavLink } from '../NavLink';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import PropTypes from 'prop-types';
 
-export const SidebarMenu = ({ links, onNavLinkClick, isOpenMenu, isIndexPage }) => {
+export const SidebarMenu = forwardRef(({ links, onNavLinkClick, isOpenMenu, isIndexPage }, ref) => {
     return (
         <>
             <aside
                 className={`fixed top-0 right-0 flex flex-col justify-center items-center z-50 bg-gray-100 dark:bg-gray-800 h-screen w-[min(75vw,400px)] ${
                     isOpenMenu ? 'translate-x-0' : 'translate-x-[100vw]'
                 } transition-transform duration-300 ease-out`}
+                ref={ref}
             >
                 {isOpenMenu && (
                     <div className="absolute z-[60] top-[1.60rem] left-2 xs:left-7">
                         <ThemeSwitcher isIndexPage={isIndexPage} />
                     </div>
                 )}
-                <nav className="flex flex-col space-y-10 text-center">
-                    {links.map((link, i) => (
-                        <NavLink key={i} location={`/#${link.location}`} onClick={onNavLinkClick}>
-                            {link.name}
-                        </NavLink>
-                    ))}
+                <nav>
+                    <ol className="flex flex-col space-y-10 text-center">
+                        {links.map((link, i) => (
+                            <li key={i}>
+                                <NavLink
+                                    location={`/#${link.location}`}
+                                    onClick={onNavLinkClick}
+                                    tabIndex={isOpenMenu ? 0 : -1}
+                                >
+                                    {link.name}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ol>
                 </nav>
             </aside>
             <div
@@ -34,7 +43,9 @@ export const SidebarMenu = ({ links, onNavLinkClick, isOpenMenu, isIndexPage }) 
             />
         </>
     );
-};
+});
+
+SidebarMenu.displayName = 'SidebarMenu';
 
 SidebarMenu.propTypes = {
     links: PropTypes.arrayOf(

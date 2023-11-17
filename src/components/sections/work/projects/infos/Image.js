@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 export const Image = ({ image, name, href, isEven }) => {
     return (
-        <div className="image__link">
+        <div className="rounded-lg md:outline md:-outline-offset-[2px] md:outline-orange">
             <a
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="block rounded-lg absolute md:relative inset-0 md:inset-auto md:outline md:-outline-offset-[2px] md:outline-orange"
+                className="group block rounded-lg absolute md:relative inset-0 md:inset-auto focus:outline-none focus:shadow-black focus:shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] dark:focus:shadow-[0_20px_30px_-10px_rgba(16,16,16,0.7)] md:focus:shadow-none md:dark:focus:shadow-none"
             >
                 <div
                     className="absolute inset-0 bg-gray-100 bg-opacity-[.9] dark:bg-black dark:bg-opacity-[.85] z-10 rounded-lg md:hidden
@@ -19,8 +19,10 @@ export const Image = ({ image, name, href, isEven }) => {
                     image={getImage(image)}
                     alt={`screenshot of ${name}`}
                     className={`object-cover h-full w-full md:h-auto md:w-auto rounded-lg transform ${
-                        isEven ? 'md:hover:translate-x-2' : 'md:hover:-translate-x-2'
-                    } md:hover:-translate-y-2 transition-transform duration-300 ease-out`}
+                        isEven
+                            ? 'md:group-hover:translate-x-2 md:group-focus:translate-x-2'
+                            : 'md:group-hover:-translate-x-2 md:group-focus:-translate-x-2'
+                    } md:group-hover:-translate-y-2 md:group-focus:-translate-y-2 transition-transform duration-300 ease-out`}
                 />
             </a>
         </div>

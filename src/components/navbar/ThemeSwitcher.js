@@ -35,19 +35,12 @@ export const ThemeSwitcher = ({ isIndexPage }) => {
         <>
             {isMounted && (
                 <>
-                    <input
-                        type="checkbox"
+                    <button
                         id="theme-switcher"
-                        className="hidden"
-                        aria-label="Switch theme"
-                        onChange={(e) => setIsDark(e.target.checked)}
-                        checked={isDark}
-                    />
-                    <label
-                        htmlFor="theme-switcher"
-                        className="relative block w-12 h-6 bg-white dark:bg-darkTheme rounded-full
-           shadow-inner shadow-black/40 dark:shadow-black/70 border border-gray-200 dark:border-[#323232]
-           cursor-pointer transition-all duration-300 ease-out"
+                        className={`relative block w-12 h-6 bg-white dark:bg-darkTheme rounded-full shadow-inner shadow-black/40 dark:shadow-black/70 border border-gray-200 dark:border-[#323232] cursor-pointer transition-all duration-300 ease-out ${
+                            isDark ? 'darkChoice' : ''
+                        }`}
+                        onClick={() => setIsDark(!isDark)}
                     >
                         <svg
                             width="24"
@@ -77,7 +70,7 @@ export const ThemeSwitcher = ({ isIndexPage }) => {
                                 fill="white"
                             />
                         </svg>
-                    </label>
+                    </button>
                 </>
             )}
         </>
