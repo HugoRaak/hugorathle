@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 
 export const Project = ({ project, isEven }) => {
     const imageHref = project.viewOn.url ?? project.viewOn.github ?? '#';
+    const image = (
+        <Image image={project.image} href={imageHref} title={project.title} isEven={isEven} />
+    );
 
     return (
         <li
@@ -12,14 +15,14 @@ export const Project = ({ project, isEven }) => {
             data-aos="fade-up"
             data-aos-duration="1000"
         >
-            {isEven && <Image image={project.image} href={imageHref} isEven={isEven} />}
+            {isEven && image}
             <Infos
                 title={project.title}
                 description={project.description}
                 techs={project.tech}
                 viewOn={project.viewOn}
             />
-            {!isEven && <Image image={project.image} href={imageHref} isEven={isEven} />}
+            {!isEven && image}
         </li>
     );
 };

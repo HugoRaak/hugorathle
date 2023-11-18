@@ -10,10 +10,6 @@ const Layout = ({ location, children }) => {
     const [isLoading, setIsLoading] = useState(isIndexPage);
     const finishLoading = () => {
         AOS.init();
-        const preferenceTheme = localStorage.getItem('preference-theme');
-        if (preferenceTheme === null || preferenceTheme === 'dark') {
-            document.documentElement.dataset.theme = 'dark';
-        }
         setIsLoading(false);
     };
 

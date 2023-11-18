@@ -10,23 +10,16 @@ export const ThemeSwitcher = ({ isIndexPage }) => {
     );
 
     useEffect(() => {
-        const preferenceTheme = localStorage.getItem('preference-theme');
         if (!isMounted) {
             setIsMounted(true);
-            preferenceTheme === null || preferenceTheme === 'dark'
-                ? (document.documentElement.dataset.theme = 'dark')
-                : setIsDark(false);
+            if (localStorage.getItem('theme') === 'light') setIsDark(false);
         } else {
             if (isDark) {
                 document.documentElement.dataset.theme = 'dark';
-                if (preferenceTheme === null || preferenceTheme === 'light') {
-                    localStorage.setItem('preference-theme', 'dark');
-                }
+                localStorage.setItem('theme', 'dark');
             } else {
                 document.documentElement.removeAttribute('data-theme');
-                if (preferenceTheme === null || preferenceTheme === 'dark') {
-                    localStorage.setItem('preference-theme', 'light');
-                }
+                localStorage.setItem('theme', 'light');
             }
         }
     }, [isDark]);

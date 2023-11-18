@@ -8,78 +8,81 @@ const Loader = ({ finishLoading }) => {
     const [isXs, setIsXs] = useState(false);
     const [is2Xs, setIs2Xs] = useState(false);
 
-    const animate = useCallback(() => {
-        const loader = anime.timeline({
-            complete: finishLoading,
-        });
+    const animate = useCallback(
+        (RaakFillColor) => {
+            const loader = anime.timeline({
+                complete: finishLoading,
+            });
 
-        loader.add({
-            targets: '.logo__shape path',
-            duration: 1000,
-            translateX: function (path, i) {
-                return i % 2 !== 0 ? [i === 1 ? 100 : -100, 0] : [0, 0];
-            },
-            translateY: function (path, i) {
-                return i % 2 === 0 ? [i === 0 ? -100 : 100, 0] : [0, 0];
-            },
-            easing: 'easeInOutQuart',
-            delay: function (path, i) {
-                return i * 150;
-            },
-        });
+            loader.add({
+                targets: '.logo__shape path',
+                duration: 1000,
+                translateX: function (path, i) {
+                    return i % 2 !== 0 ? [i === 1 ? 100 : -100, 0] : [0, 0];
+                },
+                translateY: function (path, i) {
+                    return i % 2 === 0 ? [i === 0 ? -100 : 100, 0] : [0, 0];
+                },
+                easing: 'easeInOutQuart',
+                delay: function (path, i) {
+                    return i * 150;
+                },
+            });
 
-        if (!is2Xs)
-            loader
-                .add(
-                    {
-                        targets: '#a',
-                        strokeDashoffset: [anime.setDashoffset, 0],
+            if (!is2Xs)
+                loader
+                    .add(
+                        {
+                            targets: '#a',
+                            strokeDashoffset: [anime.setDashoffset, 0],
+                            duration: 800,
+                            easing: 'easeInOutSine',
+                        },
+                        '-=400',
+                    )
+                    .add(
+                        {
+                            targets: '#R',
+                            duration: 1000,
+                            translateX: [-100, 0],
+                            easing: 'easeInOutQuart',
+                        },
+                        '-=500',
+                    )
+                    .add(
+                        {
+                            targets: '#k',
+                            duration: 1000,
+                            translateX: [100, 0],
+                            easing: 'easeInOutQuart',
+                        },
+                        '-=1000',
+                    )
+                    .add({
+                        targets: '#Raak',
                         duration: 800,
-                        easing: 'easeInOutSine',
-                    },
-                    '-=400',
-                )
-                .add(
-                    {
-                        targets: '#R',
-                        duration: 1000,
-                        translateX: [-100, 0],
+                        fill: ['none', RaakFillColor],
                         easing: 'easeInOutQuart',
-                    },
-                    '-=500',
-                )
-                .add(
-                    {
-                        targets: '#k',
-                        duration: 1000,
-                        translateX: [100, 0],
-                        easing: 'easeInOutQuart',
-                    },
-                    '-=1000',
-                )
-                .add({
-                    targets: '#Raak',
-                    duration: 800,
-                    fill: ['none', '#FFF'],
-                    easing: 'easeInOutQuart',
-                });
+                    });
 
-        loader.add({
-            targets: '#loader',
-            duration: 500,
-            top: 0,
-            left: 0,
-            translateX: 0,
-            translateY: 0,
-            scale: 1,
-            easing: 'easeInOutQuart',
-        });
-    }, [finishLoading, is2Xs]);
+            loader.add({
+                targets: '#loader',
+                duration: 500,
+                top: 0,
+                left: 0,
+                translateX: 0,
+                translateY: 0,
+                scale: 1,
+                easing: 'easeInOutQuart',
+            });
+        },
+        [finishLoading, is2Xs],
+    );
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setIsMounted(true);
-            animate();
+            animate(window.getComputedStyle(document.getElementById('Raak')).fill);
         }, 10);
 
         if (window.innerWidth < 300 && window.innerWidth >= 200) setIsXs(true);
@@ -88,7 +91,7 @@ const Loader = ({ finishLoading }) => {
     }, [animate]);
 
     return (
-        <div className="fixed inset-0 h-full w-full bg-darkTheme">
+        <div className="fixed inset-0 h-full w-full bg-white dark:bg-darkTheme">
             <div
                 id="loader"
                 className={

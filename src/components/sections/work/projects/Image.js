@@ -2,7 +2,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Image = ({ image, href, isEven }) => {
+export const Image = ({ image, href, title, isEven }) => {
     return (
         <div className="rounded-lg bg-orange">
             <a
@@ -19,13 +19,12 @@ export const Image = ({ image, href, isEven }) => {
                 />
                 <GatsbyImage
                     image={getImage(image)}
-                    alt=""
+                    alt={`Screenshot of project ${title}`}
                     className={`object-cover h-full w-full md:h-auto md:w-auto rounded-lg transform ${
                         isEven
                             ? 'md:group-hover:translate-x-2 md:group-focus:translate-x-2'
                             : 'md:group-hover:-translate-x-2 md:group-focus:-translate-x-2'
                     } md:group-hover:-translate-y-2 md:group-focus:-translate-y-2 transition-transform duration-300 ease-out`}
-                    aria-hidden={true}
                 />
             </a>
         </div>
@@ -35,5 +34,6 @@ export const Image = ({ image, href, isEven }) => {
 Image.propTypes = {
     image: PropTypes.object.isRequired,
     href: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     isEven: PropTypes.bool.isRequired,
 };
