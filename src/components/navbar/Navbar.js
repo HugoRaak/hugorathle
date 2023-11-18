@@ -84,44 +84,41 @@ const Navbar = ({ isIndexPage }) => {
                 ' focus-within:translate-y-0'
             }
         >
-            <div className="flex justify-between items-center w-full xs:px-5">
+            <nav className="flex justify-between items-center w-full xs:px-5">
                 <Link
                     to="/"
                     className="transition-filter duration-300 ease-out focus:outline-offset-0"
+                    aria-label="Home"
                 >
                     <Logo />
                 </Link>
-                <nav>
-                    <ol className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20 mt-1">
-                        <TransitionGroup component={null}>
-                            {isMounted &&
-                                links.map((link, i) => (
-                                    <CSSTransition
+                <ol className="flex-grow hidden sm:flex justify-center space-x-5 md:space-x-20 mt-1">
+                    <TransitionGroup component={null}>
+                        {isMounted &&
+                            links.map((link, i) => (
+                                <CSSTransition
+                                    key={i}
+                                    classNames={fadeDownClass}
+                                    timeout={timeout}
+                                    in={!isSm}
+                                >
+                                    <li
                                         key={i}
-                                        classNames={fadeDownClass}
-                                        timeout={timeout}
-                                        in={!isSm}
+                                        style={
+                                            isAppearing ? { transitionDelay: `${i * 100}ms` } : {}
+                                        }
                                     >
-                                        <li
-                                            key={i}
-                                            style={
-                                                isAppearing
-                                                    ? { transitionDelay: `${i * 100}ms` }
-                                                    : {}
-                                            }
+                                        <NavLink
+                                            location={`/#${link.location}`}
+                                            onClick={onNavLinkClick}
                                         >
-                                            <NavLink
-                                                location={`/#${link.location}`}
-                                                onClick={onNavLinkClick}
-                                            >
-                                                {link.name}
-                                            </NavLink>
-                                        </li>
-                                    </CSSTransition>
-                                ))}
-                        </TransitionGroup>
-                    </ol>
-                </nav>
+                                            {link.name}
+                                        </NavLink>
+                                    </li>
+                                </CSSTransition>
+                            ))}
+                    </TransitionGroup>
+                </ol>
                 <TransitionGroup component={null}>
                     {isMounted && (
                         <CSSTransition classNames={fadeDownClass} timeout={timeout} in={!isSm}>
@@ -151,7 +148,7 @@ const Navbar = ({ isIndexPage }) => {
                         </CSSTransition>
                     )}
                 </TransitionGroup>
-            </div>
+            </nav>
             <TransitionGroup component={null}>
                 {isMounted && (
                     <CSSTransition classNames={slideRightFullClass} timeout={timeout}>

@@ -142,7 +142,7 @@ html {
 
 /* link hover and focus */
 @media (hover: hover) {
-    .link {
+    .nav-link {
         & span {
             &::before,
             &::after {

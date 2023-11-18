@@ -1,6 +1,6 @@
 import React from 'react';
 import { Infos } from './infos/Infos';
-import { Image } from './infos/Image';
+import { Image } from './Image';
 import PropTypes from 'prop-types';
 
 export const Project = ({ project, isEven }) => {
@@ -12,28 +12,14 @@ export const Project = ({ project, isEven }) => {
             data-aos="fade-up"
             data-aos-duration="1000"
         >
-            {isEven && (
-                <Image
-                    image={project.image}
-                    name={project.title}
-                    href={imageHref}
-                    isEven={isEven}
-                />
-            )}
+            {isEven && <Image image={project.image} href={imageHref} isEven={isEven} />}
             <Infos
                 title={project.title}
                 description={project.description}
                 techs={project.tech}
                 viewOn={project.viewOn}
             />
-            {!isEven && (
-                <Image
-                    image={project.image}
-                    name={project.title}
-                    href={imageHref}
-                    isEven={isEven}
-                />
-            )}
+            {!isEven && <Image image={project.image} href={imageHref} isEven={isEven} />}
         </li>
     );
 };

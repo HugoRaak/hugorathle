@@ -23,16 +23,20 @@ export const Skills = () => {
 
     return (
         <div className="flex flex-col justify-center items-center pt-1 xs:pt-5 tablet:pt-10">
-            <div className="flex py-[2vw] lg:py-5">
+            <ul className="flex py-[2vw] lg:py-5">
                 {skillRow1.map((skill, i) => (
-                    <Icon key={i} name={skill} className="h-[10vw] lg:h-auto w-auto px-[1vw]" />
+                    <li key={i}>
+                        <Icon name={skill} className="h-[10vw] lg:h-auto w-auto px-[1vw]" />
+                    </li>
                 ))}
-            </div>
-            <div className="flex py-[2vw] lg:py-5">
+            </ul>
+            <ul className="flex py-[2vw] lg:py-5">
                 {skillRow2.map((skill, i) => (
-                    <Icon key={i} name={skill} className="h-[10vw] lg:h-auto w-auto px-[1vw]" />
+                    <li key={i}>
+                        <Icon name={skill} className="h-[10vw] lg:h-auto w-auto px-[1vw]" />
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 };

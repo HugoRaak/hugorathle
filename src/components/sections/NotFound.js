@@ -15,7 +15,7 @@ const elements = [
         the sadness.
     </p>,
     <div key={3} className="mt-6">
-        <LinkButton href="/">
+        <LinkButton href="/" aria-label="Home">
             <p>Go home</p>
         </LinkButton>
     </div>,

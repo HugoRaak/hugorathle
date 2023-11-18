@@ -15,9 +15,9 @@ const About = () => {
             </div>
             <div data-aos="fade-up" data-aos-duration="1000">
                 <div className="my-[10vw]">
-                    <h6 className="text-center text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl pt-[1%]">
+                    <h3 className="text-center text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl pt-[1%]">
                         My skills
-                    </h6>
+                    </h3>
                     <Skills />
                 </div>
                 <Resume />

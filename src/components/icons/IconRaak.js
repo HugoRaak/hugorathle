@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 const IconRaak = ({ className = '', classNameG = '' }) => {
     return (
         <svg
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            viewBox="0 0 196.77 54.07"
             width="196.77"
             height="54.07"
-            viewBox="0 0 196.77 54.07"
-            xmlns="http://www.w3.org/2000/svg"
             className={className}
         >
+            <title>Raak</title>
             <g stroke="#FFF" id="Raak" className={'fill-black dark:fill-white ' + classNameG}>
                 <path
                     id="R"

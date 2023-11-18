@@ -7,9 +7,9 @@ export const Infos = ({ title, description, techs, viewOn }) => {
     return (
         <div className="min-h-[300px] w-full lg:w-3/5 xl:w-2/5 flex flex-col justify-between space-x-1 py-3 px-5 sm:py-10 md:py-0 md:px-0">
             <div className="z-30">
-                <p className="text-base 2xs:text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl text-orange">
+                <h4 className="text-base 2xs:text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl text-orange">
                     {title}
-                </p>
+                </h4>
                 <p className="text-xs 2xs:text-base md:text-lg lg:text-xl 2xl:text-2xl md:leading-5 mt-4">
                     {description}
                 </p>

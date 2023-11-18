@@ -5,6 +5,7 @@ const IconDiscord = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
+            role="img"
             width="136"
             height="100"
             viewBox="0 0 136 100"

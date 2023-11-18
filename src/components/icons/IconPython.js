@@ -5,6 +5,7 @@ const IconPython = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
+            role="img"
             width="100"
             height="100"
             viewBox="0 0 101 100"

@@ -17,5 +17,13 @@ export const TypingAnimate = () => {
         };
     }, []);
 
-    return <span ref={el} className="text-orange" />;
+    return (
+        <span
+            ref={el}
+            className="text-orange"
+            aria-hidden={false}
+            aria-live="off"
+            aria-label="Typing animation: Changing qualities including passionate, versatile, serious, creative and curious."
+        />
+    );
 };

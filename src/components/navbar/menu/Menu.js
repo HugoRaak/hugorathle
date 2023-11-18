@@ -58,7 +58,7 @@ export const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndex
 
     useEffect(() => {
         const onResize = (e) => {
-            if (e.currentTarget.innerWidth > 768) {
+            if (e.currentTarget.innerWidth >= 640) {
                 setIsOpenMenu(false);
             }
         };
@@ -105,24 +105,17 @@ export const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndex
                 }`}
             >
                 <svg
-                    viewBox="10 0 100 100"
                     xmlns="http://www.w3.org/2000/svg"
+                    viewBox="10 0 100 100"
                     className="block absolute z-[70] w-24 h-24 top-0 right-0"
                 >
                     <circle
                         cx="50"
                         cy="50"
                         r="20"
-                        onClick={toggleIsOpenMenu}
                         className="fill-white opacity-0 cursor-pointer"
-                        ref={buttonRef}
-                        tabIndex="0"
-                        role="button"
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') toggleIsOpenMenu();
-                        }}
                     />
-                    <g onClick={toggleIsOpenMenu} className="cursor-pointer">
+                    <g>
                         <path
                             d="M0 40h62c13 0 6 28-4 18L35 35"
                             className="ham__l1 stroke-black dark:stroke-white"
@@ -134,6 +127,13 @@ export const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndex
                         />
                     </g>
                 </svg>
+                <button
+                    onClick={toggleIsOpenMenu}
+                    className="absolute sm:hidden z-[70] w-9 h-9 top-8 right-10"
+                    aria-label="Toggle Menu"
+                    aria-expanded={isOpenMenu}
+                    ref={buttonRef}
+                />
             </div>
             <Sidebar
                 links={links}

@@ -20,7 +20,7 @@ export const Content = () => {
             </p>
             <StaticImage
                 src="../../../images/about_coding.jpg"
-                alt="Image of code"
+                alt="Image of a computer on a table with code on its screen"
                 placeholder="blurred"
                 className="rounded-lg w-1/2 hidden sm:flex"
             />

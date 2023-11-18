@@ -5,6 +5,7 @@ const IconExternal = ({ className = '' }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
+            role="img"
             width="90"
             height="90"
             viewBox="0 0 20 20"

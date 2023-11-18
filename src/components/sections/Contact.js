@@ -9,7 +9,7 @@ const Contact = () => {
             </div>
             <SectionSubTitle>Have a project in mind?</SectionSubTitle>
             <div className="text-center py-28 lg:py-40" data-aos="fade-up" data-aos-duration="1000">
-                <LinkButton href="mailto:rathle.hugo@gmail.com">
+                <LinkButton href="mailto:rathle.hugo@gmail.com" aria-label="Send Email">
                     <div className="flex space-x-[1vw] py-[0.5vw]">
                         <p>Say hello</p>
                         <svg
@@ -20,6 +20,7 @@ const Contact = () => {
                             fill="none"
                             className="fill-orange group-hover:fill-black group-focus:fill-black w-auto h-3 2xs:h-4 xs:h-5 tablet-xs:h-6 sm:h-7 md:h-8 lg:h-9 pl-1 2xs:mt-1 tablet-xs:mt-0"
                         >
+                            <title>Send Icon</title>
                             <path d="M31.51 0 .774 15 12.3 18.75 16.142 30 31.51 0Z" />
                         </svg>
                     </div>
