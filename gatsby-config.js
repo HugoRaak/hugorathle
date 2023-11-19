@@ -1,6 +1,5 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
+const config = require('./src/config.json');
+
 module.exports = {
     siteMetadata: {
         title: 'Hugo Rathle',
@@ -14,6 +13,20 @@ module.exports = {
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `Hugo Rathle`,
+                short_name: `Hugo Rathle`,
+                start_url: `/`,
+                background_color: config.colors.darkBg,
+                theme_color: config.colors.darkTheme,
+                display: `minimal-ui`,
+                icon: `src/images/logo.png`,
+                theme_color_in_head: false,
+            },
+        },
+        `gatsby-plugin-offline`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {

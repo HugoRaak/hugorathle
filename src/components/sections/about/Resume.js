@@ -7,7 +7,7 @@ export const Resume = () => {
             <LinkButton
                 href="/resume_Hugo_Rathle.pdf"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="Resume"
             >
                 <div className="flex space-x-[1vw]">

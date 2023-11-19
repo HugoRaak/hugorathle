@@ -27,7 +27,7 @@ const Footer = () => {
                 />
             </div>
             <p className="text-sm sm:text-base opacity-50 px-5">
-                © 2023 Designed & built by Hugo Rathle
+                © {new Date().getFullYear()} Designed & built by Hugo Rathle
             </p>
         </footer>
     );

@@ -8,7 +8,7 @@ export const Image = ({ image, href, title, isEven }) => {
             <a
                 href={href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="group block rounded-lg absolute md:relative inset-0 md:inset-auto focus:outline-none focus:shadow-black focus:shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] dark:focus:shadow-[0_20px_30px_-10px_rgba(16,16,16,0.7)] md:focus:shadow-none md:dark:focus:shadow-none"
                 aria-label="Project Link"
             >
