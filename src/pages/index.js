@@ -1,5 +1,5 @@
 import React from 'react';
-import { GlobalHead, Layout, Home, About, Work, Contact } from '@components';
+import { SEO, Layout, Home, About, Work, Contact } from '@components';
 import PropTypes from 'prop-types';
 
 const IndexPage = ({ location }) => {
@@ -21,10 +21,7 @@ IndexPage.propTypes = {
 
 export default IndexPage;
 
+// eslint-disable-next-line react/prop-types
 export const Head = ({ location }) => {
-    return <GlobalHead location={location} />;
-};
-
-Head.propTypes = {
-    location: PropTypes.object.isRequired,
+    return <SEO location={location} />;
 };

@@ -78,7 +78,7 @@ const Navbar = ({ isIndexPage }) => {
     return (
         <header
             className={
-                'fixed top-0 z-40 bg-white dark:bg-darkTheme transition-all duration-300 ease-out shadow-black' +
+                'fixed top-0 z-40 bg-light dark:bg-dark transition-all duration-300 ease-out shadow-black' +
                 (!isInitialPos && isShow ? ' shadow-[0_10px_30px_-10px_rgba(16,16,16,0.7)] ' : '') +
                 (isShow || isOpenMenu ? ' translate-y-0' : ' translate-y-[-105%]') +
                 ' focus-within:translate-y-0'

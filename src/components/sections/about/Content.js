@@ -8,14 +8,14 @@ export const Content = () => {
                 Hello there! <br />
                 I&rsquo;m Hugo, pseudo Raak, a young passionate full-stack developer and a student
                 at an engineering school.
-                <br className="sm:hidden lg:block" />I started my journey as a developer a few years
-                ago when I found out how much I enjoyed coding.
-                <br className="sm:hidden lg:block" />I then discovered the world of the web, which
+                <br className="sm:hidden lg:block" /> I started my journey as a developer a few
+                years ago when I found out how much I enjoyed coding.
+                <br className="sm:hidden lg:block" /> I then discovered the world of the web, which
                 immediately fascinated me with its endless possibilities.
-                <br className="sm:hidden lg:block" />I am driven by my passion for creating
+                <br className="sm:hidden lg:block" /> I am driven by my passion for creating
                 innovative projects on the web and contributing to the dynamic realm of web
                 development.
-                <br className="sm:hidden lg:block" />I find pleasure in dedicating time to explore
+                <br className="sm:hidden lg:block" /> I find pleasure in dedicating time to explore
                 emerging technologies and mastering their applications.
             </p>
             <StaticImage

@@ -1,4 +1,4 @@
-export { default as GlobalHead } from './GlobalHead';
+export { default as SEO } from './SEO';
 export { default as Layout } from './Layout';
 export { default as Loader } from './Loader';
 export { default as Footer } from './Footer';

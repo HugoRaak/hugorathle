@@ -7,13 +7,12 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                darkTheme: config.colors.darkBg,
+                dark: config.colors.darkBg,
+                light: config.colors.lightBg,
                 orange: config.colors.orange,
-                white: config.colors.lightBg,
             },
             fontFamily: {
                 sans: ['Josefin Sans', 'sans-serif'],
-                audiowide: ['Audiowide', 'sans-serif'],
             },
             screens: {
                 'tablet-lg': '590px',

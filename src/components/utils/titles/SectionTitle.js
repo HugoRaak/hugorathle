@@ -11,7 +11,7 @@ const SectionTitle = ({ children }) => {
         >
             <Separator />
             <h2
-                className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl z-10 bg-white dark:bg-darkTheme
+                className="text-lg 2xs:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl z-10 bg-light dark:bg-dark
                        -mt-[1.05rem] 2xs:-mt-[1.40rem] lg:-mt-[1.80rem] px-0.5 transition-colors duration-300 ease-out"
             >
                 {children}

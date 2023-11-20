@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 
-const GlobalHead = ({ location, title = null, description = null, image = null }) => {
+const SEO = ({ location, title = null, description = null, image = null }) => {
     const { site } = useStaticQuery(graphql`
         query {
             site {
@@ -46,11 +46,11 @@ const GlobalHead = ({ location, title = null, description = null, image = null }
     );
 };
 
-GlobalHead.propTypes = {
+SEO.propTypes = {
     location: PropTypes.object.isRequired,
     title: PropTypes.string,
     description: PropTypes.string,
     image: PropTypes.string,
 };
 
-export default GlobalHead;
+export default SEO;

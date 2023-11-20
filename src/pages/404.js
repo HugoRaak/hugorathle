@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GlobalHead, Layout, NotFound } from '@components';
+import { SEO, Layout, NotFound } from '@components';
 import PropTypes from 'prop-types';
 
 const NotFoundPage = ({ location }) => {
@@ -18,10 +18,7 @@ NotFoundPage.propTypes = {
 
 export default NotFoundPage;
 
+// eslint-disable-next-line react/prop-types
 export const Head = ({ location }) => {
-    return <GlobalHead location={location} title="Page Not Found" />;
-};
-
-Head.propTypes = {
-    location: PropTypes.object.isRequired,
+    return <SEO location={location} title="Page Not Found" />;
 };

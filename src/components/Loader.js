@@ -91,7 +91,7 @@ const Loader = ({ finishLoading }) => {
     }, [animate]);
 
     return (
-        <div className="fixed inset-0 h-full w-full bg-white dark:bg-darkTheme">
+        <div className="fixed inset-0 h-full w-full bg-light dark:bg-dark">
             <div
                 id="loader"
                 className={
