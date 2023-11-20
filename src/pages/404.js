@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { Layout, NotFound } from '@components';
+import { GlobalHead, Layout, NotFound } from '@components';
 import PropTypes from 'prop-types';
 
 const NotFoundPage = ({ location }) => {
     return (
-        <Layout location={location}>
-            <NotFound />
-        </Layout>
+        <>
+            <Layout location={location}>
+                <NotFound />
+            </Layout>
+        </>
     );
 };
 
@@ -16,4 +18,10 @@ NotFoundPage.propTypes = {
 
 export default NotFoundPage;
 
-export const Head = () => <title>Not found</title>;
+export const Head = ({ location }) => {
+    return <GlobalHead location={location} title="Page Not Found" />;
+};
+
+Head.propTypes = {
+    location: PropTypes.object.isRequired,
+};

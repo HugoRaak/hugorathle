@@ -6,10 +6,10 @@ exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
             key="load-theme-script"
             dangerouslySetInnerHTML={{
                 __html: `
-                  const localStorageTheme = localStorage.getItem('theme');
-                  if (localStorageTheme && localStorageTheme === 'dark') {
-                    document.documentElement.setAttribute('data-theme', localStorageTheme);
-                  }
+                    const localStorageTheme = localStorage.getItem('theme');
+                    if (!localStorageTheme || localStorageTheme !== 'light') {
+                        document.documentElement.setAttribute('data-theme', 'dark');
+                    }
                 `,
             }}
         />,

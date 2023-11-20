@@ -1,4 +1,4 @@
-const config = require('./src/config.json');
+const config = require('./src/config');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

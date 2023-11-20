@@ -1,13 +1,14 @@
+export { default as GlobalHead } from './GlobalHead';
+export { default as Layout } from './Layout';
+export { default as Loader } from './Loader';
+export { default as Footer } from './Footer';
 export { default as LinkButton } from './utils/links/LinkButton';
 export { default as LinkIcon } from './utils/links/LinkIcon';
 export { default as SectionTitle } from './utils/titles/SectionTitle';
 export { default as SectionSubTitle } from './utils/titles/SectionSubTitle';
 export { default as Separator } from './utils/Separator';
 export { default as ScrollTop } from './utils/ScrollTop';
-export { default as Layout } from './Layout';
-export { default as Loader } from './Loader';
 export { default as Navbar } from './navbar/Navbar';
-export { default as Footer } from './Footer';
 export { default as NotFound } from './sections/NotFound';
 export { default as Home } from './sections/home/Home';
 export { default as About } from './sections/about/About';

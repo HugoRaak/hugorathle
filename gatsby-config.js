@@ -1,4 +1,4 @@
-const config = require('./src/config.json');
+const config = require('./src/config');
 
 module.exports = {
     siteMetadata: {
@@ -6,7 +6,7 @@ module.exports = {
         description:
             'Hugo Rathle is a full-stack developer who enjoy creates new things on the web.',
         siteUrl: `https://hugo-rathle.com`,
-        author: 'Hugo Rathle',
+        image: '/og.png',
     },
     plugins: [
         `gatsby-plugin-postcss`,

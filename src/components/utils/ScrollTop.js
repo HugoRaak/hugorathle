@@ -44,7 +44,6 @@ const ScrollTop = () => {
                 fill="none"
                 className="w-[9px] h-3 2xs:w-[13px] 2xs:h-4 mobile:w-[17px] mobile:h-5"
             >
-                <title>Arrow Up</title>
                 <path
                     d="M14.865 9.46c-.405 0-.676-.136-.946-.406L7.162 2.297a1.306 1.306 0 0 1 0-1.892c.54-.54 1.352-.54 1.892 0l6.757 6.757c.54.54.54 1.352 0 1.892-.27.27-.54.405-.946.405Z"
                     fill="#D67300"
