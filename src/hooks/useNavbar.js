@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 
 const useNavbar = (isIndexPage) => {
     const [isSm, setIsSm] = useState(false);
@@ -34,10 +33,6 @@ const useNavbar = (isIndexPage) => {
         isShow,
         isInitialPos,
     };
-};
-
-useNavbar.propTypes = {
-    isIndexPage: PropTypes.bool.isRequired,
 };
 
 export default useNavbar;

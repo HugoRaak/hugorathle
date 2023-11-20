@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-import { NavLink } from '../NavLink';
-import { ThemeSwitcher } from '../ThemeSwitcher';
+import { NavLink, ThemeSwitcher } from '@components/navbar';
 import PropTypes from 'prop-types';
 
 export const Sidebar = forwardRef(({ links, onNavLinkClick, isOpenMenu, isIndexPage }, ref) => {

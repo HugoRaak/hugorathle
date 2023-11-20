@@ -1,10 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Separator } from '@components';
-import { NavLink } from './NavLink';
-import { Logo } from './Logo';
-import { Menu } from './menu/Menu';
+import { Logo, NavLink, ThemeSwitcher, Menu } from '@components/navbar';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { ThemeSwitcher } from './ThemeSwitcher';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { useNavbar } from '@hooks';

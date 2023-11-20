@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Sidebar } from './Sidebar';
 import { useMenuFocus } from '@hooks';
 
-export const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndexPage }) => {
+const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndexPage }) => {
     const buttonRef = useRef(null);
     const menuRef = useRef(null);
     useMenuFocus(menuRef, buttonRef, isOpenMenu, setIsOpenMenu);
@@ -92,3 +92,5 @@ Menu.propTypes = {
     onNavLinkClick: PropTypes.func.isRequired,
     isIndexPage: PropTypes.bool.isRequired,
 };
+
+export default Menu;

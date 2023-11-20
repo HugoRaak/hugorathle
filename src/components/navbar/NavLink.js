@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-export const NavLink = ({ location, onClick, children, style = {} }) => {
+const NavLink = ({ location, onClick, children, style = {} }) => {
     return (
         <Link
             to={location}
@@ -21,3 +21,5 @@ NavLink.propTypes = {
     children: PropTypes.node.isRequired,
     style: PropTypes.object,
 };
+
+export default NavLink;

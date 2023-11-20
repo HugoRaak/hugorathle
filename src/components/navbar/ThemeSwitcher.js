@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-export const ThemeSwitcher = ({ isIndexPage }) => {
+const ThemeSwitcher = ({ isIndexPage }) => {
     const [isMounted, setIsMounted] = useState(isIndexPage);
     const [isDark, setIsDark] = useState(
         isIndexPage ? document.documentElement.hasAttribute('data-theme') : true,
@@ -73,3 +73,5 @@ export const ThemeSwitcher = ({ isIndexPage }) => {
 ThemeSwitcher.propTypes = {
     isIndexPage: PropTypes.bool.isRequired,
 };
+
+export default ThemeSwitcher;
