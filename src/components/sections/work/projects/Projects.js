@@ -5,7 +5,7 @@ import { Project } from './Project';
 export const Projects = () => {
     const data = useStaticQuery(graphql`
         query {
-            allProjectsJson(sort: { add: DESC }) {
+            allProjectsJson(sort: { date: DESC }) {
                 edges {
                     node {
                         title
@@ -29,6 +29,7 @@ export const Projects = () => {
             }
         }
     `);
+    console.log(data.allProjectsJson.edges);
     return (
         <ul className="pb-10">
             {data.allProjectsJson.edges.map(({ node }, i) => (

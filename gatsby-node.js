@@ -1,5 +1,20 @@
 const path = require('path');
 
+exports.createSchemaCustomization = ({ actions }) => {
+    const { createTypes } = actions;
+    const typeDefs = `
+        type ProjectsJson implements Node {
+          viewOn: ViewOn
+        }
+        
+        type ViewOn {
+          url: String
+          github: String
+        }
+    `;
+    createTypes(typeDefs);
+};
+
 exports.onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
         resolve: {
