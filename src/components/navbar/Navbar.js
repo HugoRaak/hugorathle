@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Separator } from '@components';
 import { NavLink } from './NavLink';
-import Logo from './Logo';
+import { Logo } from './Logo';
 import { Menu } from './menu/Menu';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import { useNavbar } from '@hooks';
 
 const links = [
     { location: 'about', name: 'About' },
@@ -16,15 +17,13 @@ const links = [
 
 const Navbar = ({ isIndexPage }) => {
     const [isMounted, setIsMounted] = useState(!isIndexPage);
-    const [isSm, setIsSm] = useState(false);
-    const [isAppearing, setIsAppearing] = useState(isIndexPage);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
-    const [isShow, setIsShow] = useState(true);
-    const [isInitialPos, setIsInitialPos] = useState(true);
+    const { isSm, isAppearing, isShow, isInitialPos } = useNavbar(isIndexPage);
 
     const onNavLinkClick = useCallback(
         (e) => {
             e.currentTarget.blur();
+            if (isOpenMenu) setIsOpenMenu(false);
 
             if (isIndexPage && typeof document !== 'undefined' && !isInitialPos) {
                 const targetElement = document.querySelector(
@@ -43,31 +42,14 @@ const Navbar = ({ isIndexPage }) => {
                 }
             }
         },
-        [isInitialPos, isMounted],
+        [isInitialPos, isMounted, isOpenMenu],
     );
 
     useEffect(() => {
-        let prevScrollY = window.scrollY;
-        const onScroll = () => {
-            const currentScrollY = window.scrollY;
-            currentScrollY < prevScrollY || currentScrollY < 50
-                ? setIsShow(true)
-                : setIsShow(false);
-            currentScrollY < 100 ? setIsInitialPos(true) : setIsInitialPos(false);
-            prevScrollY = currentScrollY > 0 ? currentScrollY : 0;
-        };
+        const timeout = isIndexPage ? setTimeout(() => setIsMounted(true), 100) : null;
 
-        const timeoutMounted = isIndexPage ? setTimeout(() => setIsMounted(true), 100) : null;
-        const timeoutAppearing = isIndexPage ? setTimeout(() => setIsAppearing(false), 1000) : null;
-        if (window.innerWidth < 640 && isIndexPage) setIsSm(true);
-
-        window.addEventListener('scroll', onScroll);
         return () => {
-            if (isIndexPage) {
-                clearTimeout(timeoutMounted);
-                clearTimeout(timeoutAppearing);
-            }
-            window.removeEventListener('scroll', onScroll);
+            if (isIndexPage) clearTimeout(timeout);
         };
     }, []);
 
@@ -126,7 +108,11 @@ const Navbar = ({ isIndexPage }) => {
                                 {!isOpenMenu && (
                                     <div
                                         className="hidden sm:block pr-5 right-0"
-                                        style={{ transitionDelay: `${links.length * 100}ms` }}
+                                        style={
+                                            isAppearing
+                                                ? { transitionDelay: `${links.length * 100}ms` }
+                                                : {}
+                                        }
                                     >
                                         <ThemeSwitcher isIndexPage={isIndexPage} />
                                     </div>
@@ -154,9 +140,15 @@ const Navbar = ({ isIndexPage }) => {
                     <CSSTransition classNames={slideRightFullClass} timeout={timeout}>
                         <Separator
                             className="transition-filter duration-300 ease-out"
-                            style={{
-                                transitionDelay: `${!isSm ? links.length * 100 + 100 : 100}ms`,
-                            }}
+                            style={
+                                isAppearing
+                                    ? {
+                                          transitionDelay: `${
+                                              !isSm ? links.length * 100 + 100 : 100
+                                          }ms`,
+                                      }
+                                    : {}
+                            }
                         />
                     </CSSTransition>
                 )}

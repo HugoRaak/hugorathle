@@ -82,7 +82,11 @@ const Loader = ({ finishLoading }) => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setIsMounted(true);
-            animate(window.getComputedStyle(document.getElementById('Raak')).fill);
+            animate(
+                window.innerWidth >= 200
+                    ? window.getComputedStyle(document.getElementById('Raak')).fill
+                    : 'none',
+            );
         }, 10);
 
         if (window.innerWidth < 300 && window.innerWidth >= 200) setIsXs(true);

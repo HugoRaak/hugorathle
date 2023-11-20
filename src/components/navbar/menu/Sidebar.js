@@ -14,22 +14,25 @@ export const Sidebar = forwardRef(({ links, onNavLinkClick, isOpenMenu, isIndexP
                 aria-label="Menu"
                 ref={ref}
             >
-                <nav>
-                    {isOpenMenu && (
+                {isOpenMenu && (
+                    <nav>
                         <div className="absolute z-[60] top-[1.60rem] left-2 xs:left-7">
                             <ThemeSwitcher isIndexPage={isIndexPage} />
                         </div>
-                    )}
-                    <ol className="flex flex-col space-y-10 text-center">
-                        {links.map((link, i) => (
-                            <li key={i}>
-                                <NavLink location={`/#${link.location}`} onClick={onNavLinkClick}>
-                                    {link.name}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ol>
-                </nav>
+                        <ol className="flex flex-col space-y-10 text-center">
+                            {links.map((link, i) => (
+                                <li key={i}>
+                                    <NavLink
+                                        location={`/#${link.location}`}
+                                        onClick={onNavLinkClick}
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ol>
+                    </nav>
+                )}
             </aside>
             <div
                 className={
