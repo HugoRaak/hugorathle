@@ -4,7 +4,7 @@ module.exports = {
     siteMetadata: {
         title: 'Hugo Rathle',
         description:
-            'Hugo Rathle is a full-stack developer passionate about crafting exceptional digital experiences. From design to implementation, he strive to push boundaries and create elegant, high-performance computing solutions. Welcome to his digital universe!',
+            'Hugo Rathle is a software engineer passionate about crafting exceptional digital experiences. Welcome to his digital universe!',
         siteUrl: `https://hugorathle.com`,
         image: '/og.png',
     },
