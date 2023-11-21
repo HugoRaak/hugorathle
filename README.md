@@ -37,7 +37,7 @@ I'm happy to share it, this project is open source, and you are welcome to fork 
     If you have installed Gatsby CLI
 
     ```sh
-    gatsby develop
+    npm start
     ```
 
     else

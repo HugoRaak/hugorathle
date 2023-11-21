@@ -29,7 +29,6 @@ export const Projects = () => {
             }
         }
     `);
-    console.log(data.allProjectsJson.edges);
     return (
         <ul className="pb-10">
             {data.allProjectsJson.edges.map(({ node }, i) => (

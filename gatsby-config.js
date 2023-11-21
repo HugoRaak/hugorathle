@@ -9,6 +9,7 @@ module.exports = {
         image: '/og.png',
     },
     plugins: [
+        `gatsby-plugin-netlify`,
         `gatsby-plugin-postcss`,
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
