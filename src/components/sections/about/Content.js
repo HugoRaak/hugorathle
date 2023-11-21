@@ -22,7 +22,7 @@ export const Content = () => {
                 src="../../../images/about_coding.jpg"
                 alt="Image of a computer on a table with code on its screen"
                 placeholder="blurred"
-                className="about__img rounded-lg w-1/2 sm:flex"
+                className="rounded-lg w-1/2 !hidden sm:!flex"
             />
         </div>
     );
