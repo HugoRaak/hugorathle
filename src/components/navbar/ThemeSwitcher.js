@@ -11,6 +11,7 @@ const ThemeSwitcher = ({ isIndexPage }) => {
 
     useEffect(() => {
         if (!isMounted) {
+            //component need to be mounted before access to the localStorage
             setIsMounted(true);
             if (localStorage.getItem('theme') === 'light') setIsDark(false);
         } else {

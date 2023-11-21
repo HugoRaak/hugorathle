@@ -6,7 +6,7 @@ import { useMenuFocus } from '@hooks';
 const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndexPage }) => {
     const buttonRef = useRef(null);
     const menuRef = useRef(null);
-    useMenuFocus(menuRef, buttonRef, isOpenMenu, setIsOpenMenu);
+    useMenuFocus(menuRef, buttonRef, isOpenMenu, setIsOpenMenu); //set up focus within menu
 
     const toggleIsOpenMenu = () => setIsOpenMenu(!isOpenMenu);
 
@@ -33,6 +33,17 @@ const Menu = ({ isOpenMenu, setIsOpenMenu, links, onNavLinkClick, isIndexPage })
             if (isOpenMenu) removeAllEvents();
         };
     }, [isOpenMenu, toggleIsOpenMenu]);
+
+    useEffect(() => {
+        const onResize = (e) => {
+            if (e.currentTarget.innerWidth >= 640) {
+                setIsOpenMenu(false);
+            }
+        };
+
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
 
     return (
         <>

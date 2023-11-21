@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { LinkButton } from '@components';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useAnimateOnMounted } from '@hooks';
 
 const elements = [
     <h1
@@ -22,18 +23,7 @@ const elements = [
 ];
 
 const NotFound = () => {
-    const [isMounted, setIsMounted] = useState(false);
-    const [isAppearing, setIsAppearing] = useState(true);
-
-    useEffect(() => {
-        const timeoutMounted = setTimeout(() => setIsMounted(true), 100);
-        const timeoutAppearing = setTimeout(() => setIsAppearing(false), 500);
-
-        return () => {
-            clearTimeout(timeoutMounted);
-            clearTimeout(timeoutAppearing);
-        };
-    }, []);
+    const { isMounted, isAnimating } = useAnimateOnMounted();
 
     return (
         <section className="h-[70vh] flex flex-col justify-center items-center text-center">
@@ -43,7 +33,7 @@ const NotFound = () => {
                         <CSSTransition key={i} classNames="fadeup" timeout={2000}>
                             <div
                                 key={i}
-                                style={isAppearing ? { transitionDelay: `${i * 100}ms` } : {}}
+                                style={isAnimating ? { transitionDelay: `${i * 100}ms` } : {}}
                             >
                                 {element}
                             </div>

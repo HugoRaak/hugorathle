@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 
+// https://www.gatsbyjs.com/docs/add-seo-component/
 const SEO = ({ location, title = null, description = null, image = null }) => {
     const { site } = useStaticQuery(graphql`
         query {

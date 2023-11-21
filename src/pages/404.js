@@ -18,6 +18,7 @@ NotFoundPage.propTypes = {
 
 export default NotFoundPage;
 
+// https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
 // eslint-disable-next-line react/prop-types
 export const Head = ({ location }) => {
     return <SEO location={location} title="Page Not Found" />;

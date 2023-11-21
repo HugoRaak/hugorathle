@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 
 const Layout = ({ location, children }) => {
     const isIndexPage = location.pathname === '/';
-    const [isLoading, setIsLoading] = useState(isIndexPage);
+    const [isLoading, setIsLoading] = useState(isIndexPage); //use loader only for index page
     const finishLoading = () => {
         AOS.init();
         setIsLoading(false);

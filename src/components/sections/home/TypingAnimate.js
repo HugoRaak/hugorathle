@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Typed from 'typed.js';
 
+// https://github.com/mattboldt/typed.js
 export const TypingAnimate = () => {
     const el = React.useRef(null);
 

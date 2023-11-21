@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 const useNavbar = (isIndexPage) => {
     const [isSm, setIsSm] = useState(false);
-    const [isAppearing, setIsAppearing] = useState(isIndexPage);
     const [isShow, setIsShow] = useState(true);
     const [isInitialPos, setIsInitialPos] = useState(true);
 
@@ -17,19 +16,16 @@ const useNavbar = (isIndexPage) => {
             prevScrollY = currentScrollY > 0 ? currentScrollY : 0;
         };
 
-        const timeout = isIndexPage ? setTimeout(() => setIsAppearing(false), 1000) : null;
         if (window.innerWidth < 640 && isIndexPage) setIsSm(true);
 
         window.addEventListener('scroll', onScroll);
         return () => {
             window.removeEventListener('scroll', onScroll);
-            if (isIndexPage) clearTimeout(timeout);
         };
     }, []);
 
     return {
         isSm,
-        isAppearing,
         isShow,
         isInitialPos,
     };

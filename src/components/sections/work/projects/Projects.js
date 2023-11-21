@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Project } from './Project';
 
 export const Projects = () => {
+    // https://www.gatsbyjs.com/plugins/gatsby-transformer-json/
     const data = useStaticQuery(graphql`
         query {
             allProjectsJson(sort: { date: DESC }) {

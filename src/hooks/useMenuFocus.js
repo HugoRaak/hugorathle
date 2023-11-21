@@ -51,17 +51,6 @@ const useMenuFocus = (menuRef, buttonRef, isOpenMenu, setIsOpenMenu) => {
     );
 
     useEffect(() => {
-        const onResize = (e) => {
-            if (e.currentTarget.innerWidth >= 640) {
-                setIsOpenMenu(false);
-            }
-        };
-
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
-    }, []);
-
-    useEffect(() => {
         setFocusables();
         document.addEventListener('keydown', onKeyDown);
         return () => document.removeEventListener('keydown', onKeyDown);

@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Separator } from '@components';
 import { Logo, NavLink, ThemeSwitcher, Menu } from '@components/navbar';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import { useNavbar } from '@hooks';
+import { useAnimateOnMounted, useNavbar } from '@hooks';
 
 const links = [
     { location: 'about', name: 'About' },
@@ -13,15 +13,17 @@ const links = [
 ];
 
 const Navbar = ({ isIndexPage }) => {
-    const [isMounted, setIsMounted] = useState(!isIndexPage);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
-    const { isSm, isAppearing, isShow, isInitialPos } = useNavbar(isIndexPage);
+    const { isMounted, isAnimating } = useAnimateOnMounted(!isIndexPage, isIndexPage, 1000);
+    const { isSm, isShow, isInitialPos } = useNavbar(isIndexPage);
 
     const onNavLinkClick = useCallback(
         (e) => {
             e.currentTarget.blur();
             if (isOpenMenu) setIsOpenMenu(false);
 
+            // When navigating to a section higher than the current scroll position on the index page,
+            // the navbar is shown, to prevent any content from being hidden:
             if (isIndexPage && typeof document !== 'undefined' && !isInitialPos) {
                 const targetElement = document.querySelector(
                     `#${e.currentTarget.href.split('#')[1]}`,
@@ -41,14 +43,6 @@ const Navbar = ({ isIndexPage }) => {
         },
         [isInitialPos, isMounted, isOpenMenu],
     );
-
-    useEffect(() => {
-        const timeout = isIndexPage ? setTimeout(() => setIsMounted(true), 100) : null;
-
-        return () => {
-            if (isIndexPage) clearTimeout(timeout);
-        };
-    }, []);
 
     const timeout = isIndexPage ? 2000 : 0;
     const fadeDownClass = isIndexPage ? 'fadedown' : '';
@@ -84,7 +78,7 @@ const Navbar = ({ isIndexPage }) => {
                                     <li
                                         key={i}
                                         style={
-                                            isAppearing ? { transitionDelay: `${i * 100}ms` } : {}
+                                            isAnimating ? { transitionDelay: `${i * 100}ms` } : {}
                                         }
                                     >
                                         <NavLink
@@ -106,7 +100,7 @@ const Navbar = ({ isIndexPage }) => {
                                     <div
                                         className="hidden sm:block pr-5 right-0"
                                         style={
-                                            isAppearing
+                                            isAnimating
                                                 ? { transitionDelay: `${links.length * 100}ms` }
                                                 : {}
                                         }
@@ -138,7 +132,7 @@ const Navbar = ({ isIndexPage }) => {
                         <Separator
                             className="transition-filter duration-300 ease-out"
                             style={
-                                isAppearing
+                                isAnimating
                                     ? {
                                           transitionDelay: `${
                                               !isSm ? links.length * 100 + 100 : 100
