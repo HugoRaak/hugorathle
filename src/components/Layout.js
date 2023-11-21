@@ -31,6 +31,7 @@ const Layout = ({ location, children }) => {
         <>
             <Link
                 to="#content"
+                onClick={(e) => e.currentTarget.blur()}
                 className="absolute left-0 top-3 z-[100] -translate-x-[105%] rounded bg-orange text-center text-black p-4 shadow-black shadow-[0_0_10px_0_rgba(0,0,0,0.2)] focus:translate-x-0 focus:outline-none transition-transform duration-300 ease-out"
                 tabIndex={isLoading ? -1 : 0}
             >
