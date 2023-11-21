@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://raw.githubusercontent.com/HugoRaak/portfolio/main/src/images/logo.png" alt="Logo">
     <h1>hugorathle.com</h1>
-    <p>My first portfolio built with <a href="http://gatsbyjs.com" target="_blank">Gatsby</a> and <a href="http://tailwindcss.com" target="_blank">Tailwind</a>, hosted on <a href="http://netlify.com" target="_blank">Netlify</a></p>
+    <p>My personal website and first portfolio built with <a href="http://gatsbyjs.com" target="_blank">Gatsby</a> and <a href="http://tailwindcss.com" target="_blank">Tailwind</a>, hosted on <a href="http://netlify.com" target="_blank">Netlify</a></p>
     <img src="https://api.netlify.com/api/v1/badges/d4dd3926-913a-447f-9951-e6a3b319c941/deploy-status" alt="Deploy Status">
     <img src="https://raw.githubusercontent.com/HugoRaak/portfolio/main/src/images/preview.png" alt="Preview">
 </div>
