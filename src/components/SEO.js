@@ -42,6 +42,11 @@ const SEO = ({ location, title = null, description = null, image = null }) => {
             <meta name="twitter:title" content={seo.title} />
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.image} />
+
+            <meta
+                name="google-site-verification"
+                content="iTMNKmvDxQxnC18pi2aHeI5Nyxdgdf0pmGfj0IAtyKI"
+            />
         </>
     );
 };
