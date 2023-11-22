@@ -11,7 +11,7 @@ export const Resume = () => {
                 aria-label="Resume"
             >
                 <div className="flex space-x-[1vw]">
-                    <p>Resume</p>
+                    Resume
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="25"

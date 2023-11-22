@@ -10,7 +10,6 @@ const Footer = () => {
                     href="https://github.com/HugoRaak"
                     name="github"
                     className="icon-sm"
-                    isProjectLink={false}
                     ariaLabel="Github"
                 />
                 <LinkIcon

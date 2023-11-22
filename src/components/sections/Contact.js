@@ -16,7 +16,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                 >
                     <div className="flex space-x-[1vw] py-[0.5vw]">
-                        <p>Say hello</p>
+                        Say hello
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="32"

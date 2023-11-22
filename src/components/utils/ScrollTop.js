@@ -29,7 +29,9 @@ const ScrollTop = () => {
                 'w-6 h-6 2xs:w-8 2xs:h-8 mobile:w-12 mobile:h-12 z-[35] ' +
                 'rounded-full bg-gray-200 dark:bg-neutral-800 shadow-inner shadow-black/40 dark:shadow-black/70 ' +
                 'border border-gray-300 dark:border-neutral-700 cursor-pointer' +
-                (isShow ? ' opacity-1 translate-y-0 ' : ' opacity-0 -translate-y-10 ') +
+                (isShow
+                    ? ' opacity-1 translate-y-0 '
+                    : ' pointer-events-none opacity-0 -translate-y-10 ') +
                 'transition-all duration-300 ease-out'
             }
             onClick={onScrollTop}
@@ -43,6 +45,7 @@ const ScrollTop = () => {
                 viewBox="0 0 17 20"
                 fill="none"
                 className="w-[9px] h-3 2xs:w-[13px] 2xs:h-4 mobile:w-[17px] mobile:h-5"
+                aria-hidden={true}
             >
                 <path
                     d="M14.865 9.46c-.405 0-.676-.136-.946-.406L7.162 2.297a1.306 1.306 0 0 1 0-1.892c.54-.54 1.352-.54 1.892 0l6.757 6.757c.54.54.54 1.352 0 1.892-.27.27-.54.405-.946.405Z"
