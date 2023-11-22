@@ -269,6 +269,16 @@ html {
     );
 }
 
+.about__img {
+    display: flex !important;
+}
+
+@media screen and (max-width: 640px) {
+    .about__img {
+        display: none !important;
+    }
+}
+
 .icon-sm {
     @apply h-5 xs:h-6 tablet:h-7 sm:h-8 md:h-9 lg:h-10 w-auto;
 }
